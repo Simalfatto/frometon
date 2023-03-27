@@ -19,5 +19,4 @@ class Cheese < ApplicationRecord
   validates :filter_brebis, presence: true
   validates :filter_AOP, presence: true
   validates :wine, presence: true
-  validates :address, presence: true
 end
