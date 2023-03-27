@@ -5,4 +5,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  resources :cheeses, only: [:index, :map, :region, :show] do
+    resources :reviews, only: [:new, :create]
+  end
+
+  resources :bookmarks, only: [:index]
+  resources :users, only: [:edit, :update]
 end
