@@ -1,0 +1,11 @@
+<div class="wrapper">
+  <h1> Votre avis  </h1>
+  <%= simple_form_for([@bcheese, @review]) do |f| %>
+    <%= f.input :content, label: "Commentaire" %>
+    <%= f.input :rating, label: "Note", collection: Review::AUTHORIZED_RATINGS %>
+    <div class="btn-bottom">
+      <%= f.button :submit, class: "button-primary" %>
+      <%= link_to "Revenir sur les cheeses",  cheeses_path, class: "button-secondary" %>
+    </div>
+  <% end %>
+</div>
