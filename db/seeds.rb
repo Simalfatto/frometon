@@ -5,3 +5,56 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+emile = User.new{
+  pseudo: "",
+  email: "",
+  password: "",
+  score_search_vache: 10,
+  score_search_chevre: 10,
+  score_search_brebis: 10,
+}
+
+feta = User.new{
+  pseudo: "",
+  email: "",
+  password: "",
+  score_search_vache: 10,
+  score_search_chevre: 10,
+  score_search_brebis: 10,
+}
+
+camille = User.new{
+  pseudo: "",
+  email: "",
+  password: "",
+  score_search_vache: 10,
+  score_search_chevre: 10,
+  score_search_brebis: 10,
+}
+
+pierre = User.new{
+  pseudo: "",
+  email: "",
+  password: "",
+  score_search_vache: 10,
+  score_search_chevre: 10,
+  score_search_brebis: 10,
+}
+
+clea = User.new{
+  pseudo: "",
+  email: "",
+  password: "",
+  score_search_vache: 10,
+  score_search_chevre: 10,
+  score_search_brebis: 10,
+}
+
+gaspare = User.new{
+  pseudo: "",
+  email: "",
+  password: "",
+  score_search_vache: 10,
+  score_search_chevre: 10,
+  score_search_brebis: 10,
+}
