@@ -1,0 +1,17 @@
+.image-cheese-show{
+  width: 200px;
+  height: 200px;
+}
+
+.buttons-cheese {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons-cheese button{
+  border: none;
+  background-color: #111020;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 8px;
+}
