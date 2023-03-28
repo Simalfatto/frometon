@@ -13,10 +13,10 @@ class Cheese < ApplicationRecord
   validates :picture_url, presence: true
   validates :description_1, presence: true
   validates :description_2, presence: true
-  validates :filter_pregnant, presence: true
-  validates :filter_vache, presence: true
-  validates :filter_chevre, presence: true
-  validates :filter_brebis, presence: true
-  validates :filter_AOP, presence: true
+  validates :filter_pregnant, inclusion: { in: [true, false] }
+  validates :filter_vache, inclusion: { in: [true, false] }
+  validates :filter_chevre, inclusion: { in: [true, false] }
+  validates :filter_brebis, inclusion: { in: [true, false] }
+  validates :filter_AOP, inclusion: { in: [true, false] }
   validates :wine, presence: true
 end
