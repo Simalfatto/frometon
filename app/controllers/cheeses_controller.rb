@@ -6,11 +6,21 @@ class CheesesController < ApplicationController
   end
 
   def show
-    @reviews = @cheese.reviews
+    @recipes = Recipe.where(params[:cheese_id])
   end
 
   def new
     @cheese = Cheese.new
+  end
+
+  private
+
+  def set_cheese
+		@cheese = Cheese.find(params[:id])
+	end
+
+  def params_cheese
+
   end
 
 end
