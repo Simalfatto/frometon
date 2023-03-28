@@ -1,6 +1,13 @@
 <%= render "shared/navbar-top-default" %>
 <main class="content-middle">
-    <h1>Pages#home</h1>
-    <p>Find me in app/views/pages/home.html.erb</p>
+  <h2>la roulette</h2>
+
+  <div class="d-flex">
+    <%= button_to 'Lancer la roulette', result_path, method: "get" %>
+    <button class="btn btn-primary">Personnaliser la recherche</button>
+  </div>
+
+  <p>Le bouton pour déplier les paramètres de recherche</p>
+  <p>le form avec submit pour les paramètres de recherche</p>
 </main>
 <%= render "shared/navbar-bottom-default" %>
