@@ -1,25 +1,38 @@
 <%= render "shared/navbar-top-default" %>
-<main class="content-middle">
+<main class="content-middle" data-controller="roulette">
   <h2>la roulette</h2>
 
-  <div class="d-flex">
-    <%= button_to 'Lancer la roulette', result_path, method: "get" %>
-    <button class="btn btn-primary">Personnaliser la recherche</button>
+  <div>
+    <%= button_to 'Lancer la roulette', result_path, method: "get", params: {search_all: true} %>
+    <button data-action="click->roulette#display">Personnaliser la recherche</button>
   </div>
-
-  <p>Le bouton pour déplier les paramètres de recherche</p>
-  <%= form_tag(result_path, method: :get) do %>
-    <%= check_box_tag :vache , class: :"form-check-input" %>
-    <%= label_tag :"lait de brebis" %>
-    <%= check_box_tag :brebis %>
-    <%= label_tag :"lait de chèvre" %>
-    <%= check_box_tag :chèvre %>
-    <%= label_tag :"AOP" %>
-    <%= check_box_tag :AOP %>
-    <%= label_tag :"pour femme enceinte" %>
-    <%= check_box_tag :"enceinte" %>
-    <%= submit_tag %>
-<% end %>
+  <div data-roulette-target="parameters" class="d-none" id="form_roulette">
+    <%= form_tag(result_path, method: :get, class: :"form-check form-switch d-flex flex-column") do %>
+      <div>
+        <%= label_tag :"lait de vache" %>
+        <%= check_box_tag :vache, 1, true, class: "form-check-input" %>
+      </div>
+      <div>
+        <%= label_tag :"lait de brebis" %>
+        <%= check_box_tag :brebis, 1, true, class: "form-check-input" %>
+      </div>
+      <div>
+        <%= label_tag :"lait de chèvre" %>
+        <%= check_box_tag :chèvre, 1, true, class: "form-check-input" %>
+      </div>
+      <div>
+        <%= label_tag :"AOP uniquement" %>
+        <%= check_box_tag :AOP, 0, false, class: "form-check-input" %>
+      </div>
+      <div>
+        <%= label_tag :"pour femme enceinte uniquement" %>
+        <%= check_box_tag :enceinte, 0, false, class: "form-check-input" %>
+      </div>
+      <div class="mt-2 d-flex">
+        <%= submit_tag :rechercher %>
+      </div>
+    <% end %>
+  </div>
 
 </main>
 <%= render "shared/navbar-bottom-default" %>
