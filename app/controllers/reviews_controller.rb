@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   def new
-    # @reviews = Review.where(user_id: currend_user.id)
+    @cheese = Cheese.find(params[:cheese_id])
     @review = Review.new
   end
 

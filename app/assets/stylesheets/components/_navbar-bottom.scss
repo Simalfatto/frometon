@@ -1,0 +1,12 @@
+.navbar-bottom{
+    grid-area: c;
+    background-color: #111020;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+}
+
+.navbar-bottom a{
+    color: white;
+}

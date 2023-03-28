@@ -1,4 +1,9 @@
-<% @bookmarks.each |bookmark| do%>
-<%= bookmark.cheese.name %>
-<%= bookmark.cheese.category %>
-<%# lien vers la show %>
+<%= render "shared/navbar-top-default" %>
+<main class="content-middle">
+    <% @bookmarks.each do | bookmark |  %>
+    <%= bookmark.cheese.name %>
+    <%= bookmark.cheese.category %>
+    <%# lien vers la show %>
+    <% end %>
+</main>
+<%= render "shared/navbar-bottom-default" %>
