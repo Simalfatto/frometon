@@ -1,0 +1,17 @@
+*, 
+::after,
+::before{
+    margin: 0;
+    padding: 0;
+}
+
+.layout{
+    display: grid;
+    grid-template-rows: 56px auto 56px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0 16px;
+    grid-template-areas:
+    "a a a"
+    "b b b"
+    "c c c";
+}

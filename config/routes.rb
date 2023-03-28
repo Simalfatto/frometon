@@ -10,5 +10,14 @@ Rails.application.routes.draw do
   end
 
   resources :bookmarks, only: [:index]
-  resources :users, only: [:edit, :update]
+
+  get "userprofiles/question_1" => "userprofiles#question_1", as: "question_1"
+  get "userprofiles/question_2" => "userprofiles#question_2", as: "question_2"
+  get "userprofiles/question_3" => "userprofiles#question_3", as: "question_3"
+  get "userprofiles/profil" => "userprofiles#show", as: "show"
+
+  patch "userprofiles/question_1" => "userprofiles#update"
+  patch "userprofiles/question_2" => "userprofiles#update"
+  patch "userprofiles/question_3" => "userprofiles#update"
+  patch "userprofiles/profil" => "userprofiles#update"
 end
