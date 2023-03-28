@@ -12,20 +12,7 @@
 
   <body>
     <section class="layout">
-        <nav class="navbar-top">
-            <i class="fa-solid fa-arrow-left"></i>
-            <h4>Title Page</h4>
-            <i class="fa-solid fa-bars"></i>
-        </nav>
-        <main class="content-middle">
-            <%= yield %>
-        </main>
-        <nav class="navbar-bottom">
-            <i class="fa-solid fa-house"></i>
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <i class="fa-solid fa-bookmark"></i>
-            <i class="fa-solid fa-user"></i>
-        </nav>
+      <%= yield %>
     </section>
     <%= render "shared/flashes" %>
   </body>
