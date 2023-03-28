@@ -1,40 +1,18 @@
-    <div class="banner">
-      <% if user_signed_in? %>
-        <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to "Sign in", new_user_session_path %>
-      <% end %>
-    </div>
-
-<h1>Fromages</h1>
-
-
-<div class="search">
-  <%= text_field_tag :search, '', placeholder: "Rechercher un fromage" %>
-  <button class="search-button">Rechercher</button>
-</div>
-
-<div class="cheeses">
-  <% @cheeses.first(15).each do |cheese| %>
-    <div class="cheese-card">
-    <%= cheese.name %>
-    <%= image_tag cheese.picture_url %>
-    </div>
+<%= render "shared/navbar-top-default" %>
+<main class="content-middle">
+  <%= link_to root_path, style: "text-decoration: none;" do  %>
+  <h1>Retour</h1>
   <% end %>
-</div>
-
-<script>
-  $(document).ready(function() {
-    $('.search input').on('keyup', function() {
-      var searchText = $(this).val().toLowerCase();
-      $('.cheese-card').each(function() {
-        var cheeseName = $(this).text().toLowerCase();
-        if (cheeseName.indexOf(searchText) === -1) {
-          $(this).hide();
-        } else {
-          $(this).show();
-        }
-      });
-    });
-  });
-</script>
+  <div class="card-product">
+  <% @cheeses.first(15).each do |cheese| %>
+    <div class="card-body">
+      <%= link_to cheese_path(cheese) do %>
+      <%= image_tag cheese.picture_url, class: "card-img-top", style: "border: 1px solid #1d4851; border-radius: 10px 10px 10px 10px;" %>
+      <% end %>
+    <h5 class="card-title">
+    <%= cheese.name %></h5>
+    </div>
+  </div>
+  <% end %>
+</main>
+<%= render "shared/navbar-bottom-default" %>
