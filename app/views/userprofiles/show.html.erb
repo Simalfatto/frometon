@@ -1,0 +1,11 @@
+<%= render "shared/navbar-top-default" %>
+<main class="content-middle">
+  <p>Bienvenue <%= @user.pseudo %></p>
+  <p><%= @user.email %></p>
+  <p><%= @bookmarks.length %> Favoris</p>
+  <p><%= @forbiddens.length %> Interdit</p>
+  <% @reviews.each do |r| %>
+    <p><%= r.content %> <%= r.rating %></p>
+  <% end %>
+</main>
+<%= render "shared/navbar-bottom-default" %>
