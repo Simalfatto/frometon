@@ -1,0 +1,25 @@
+#recipes-list,
+#wine-list,
+#story-list{
+    box-sizing: border-box;
+    padding: 16px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: white;
+    background-color: #111020;
+    width: 100vw;
+    height: 1px;
+    opacity: 0;
+    transition: all 0.75s ease-out;
+    border-radius: 15px 15px 0 0;
+    overflow: hidden;
+}
+
+#recipes-list.show,
+#wine-list.show,
+#story-list.show{
+    opacity: 1;
+    width: 100vw;
+    height: 90%;
+}

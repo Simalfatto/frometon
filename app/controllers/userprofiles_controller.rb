@@ -9,6 +9,10 @@ class UserprofilesController < ApplicationController
   end
 
   def show
+    @user = current_user
+    @bookmarks = Bookmark.where(user_id: current_user.id)
+    @forbiddens = Forbidden.where(user_id: current_user.id)
+    @reviews = Review.where(user_id: current_user.id)
   end
 
   def update

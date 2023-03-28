@@ -1,5 +1,27 @@
 <%= render "shared/navbar-top-default" %>
-<main class="content-middle">
-  # écrire le code ici
+<main class="content-middle" data-controller="slide-cards">
+    <%= image_tag @cheese.picture_url, class: "image-cheese-show" %>
+    <p><%= @cheese.name %></p>
+    <p><%= @cheese.saison %></p>
+    <p><%= @cheese.affinage %></p>
+    <p><%= @cheese.pate %></p>
+    <div class="buttons-cheese">
+      <button id="button recipe" data-action="click->slide-cards#slideOn">Recettes</button>
+      <button id="button wine" data-action="click->slide-cards#slideOn">Vins</button>
+      <button id="button story" data-action="click->slide-cards#slideOn">Histoire</button>
+    </div>
+    <div id="recipes-list" data-slide-cards-target="recipes" data-action="click->slide-cards#slideOff">
+        <h2>Recettes du fromage</h2>
+        <p>test</p>
+    </div>
+    <div id="wine-list" data-slide-cards-target="wine" data-action="click->slide-cards#slideOff">
+        <h2>Les vins conseillés</h2>
+        <p><%= @cheese.wine %></p>
+    </div>
+    <div id="story-list" data-slide-cards-target="story" data-action="click->slide-cards#slideOff">
+        <h2>Histoire du fromage</h2>
+        <p><%= @cheese.description_1 %></p>
+    </div>
 </main>
 <%= render "shared/navbar-bottom-default" %>
+

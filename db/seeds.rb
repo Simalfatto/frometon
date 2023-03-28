@@ -27,7 +27,7 @@ feta = User.new(
   password: "feta12345",
   score_search_vache: 10,
   score_search_chevre: 10,
-  score_search_brebis: 10
+  score_search_brebis: 0
 )
 feta.save!
 
