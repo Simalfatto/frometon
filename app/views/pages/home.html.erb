@@ -8,6 +8,18 @@
   </div>
 
   <p>Le bouton pour déplier les paramètres de recherche</p>
-  <p>le form avec submit pour les paramètres de recherche</p>
+  <%= form_tag(result_path, method: :get) do %>
+    <%= check_box_tag :vache , class: :"form-check-input" %>
+    <%= label_tag :"lait de brebis" %>
+    <%= check_box_tag :brebis %>
+    <%= label_tag :"lait de chèvre" %>
+    <%= check_box_tag :chèvre %>
+    <%= label_tag :"AOP" %>
+    <%= check_box_tag :AOP %>
+    <%= label_tag :"pour femme enceinte" %>
+    <%= check_box_tag :"enceinte" %>
+    <%= submit_tag %>
+<% end %>
+
 </main>
 <%= render "shared/navbar-bottom-default" %>
