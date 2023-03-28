@@ -1,0 +1,40 @@
+    <div class="banner">
+      <% if user_signed_in? %>
+        <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to "Sign in", new_user_session_path %>
+      <% end %>
+    </div>
+
+<h1>Fromages</h1>
+
+
+<div class="search">
+  <%= text_field_tag :search, '', placeholder: "Rechercher un fromage" %>
+  <button class="search-button">Rechercher</button>
+</div>
+
+<div class="cheeses">
+  <% @cheeses.first(15).each do |cheese| %>
+    <div class="cheese-card">
+    <%= cheese.name %>
+    <%= image_tag cheese.picture_url %>
+    </div>
+  <% end %>
+</div>
+
+<script>
+  $(document).ready(function() {
+    $('.search input').on('keyup', function() {
+      var searchText = $(this).val().toLowerCase();
+      $('.cheese-card').each(function() {
+        var cheeseName = $(this).text().toLowerCase();
+        if (cheeseName.indexOf(searchText) === -1) {
+          $(this).hide();
+        } else {
+          $(this).show();
+        }
+      });
+    });
+  });
+</script>

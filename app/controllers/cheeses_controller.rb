@@ -1,5 +1,5 @@
 class CheesesController < ApplicationController
-  before_action :set_cheese, only: [:show, :edit, :update, :destroy]
+  before_action :set_cheese, only: [:show, :edit, :update]
 
   def index
     @cheeses = Cheese.all
