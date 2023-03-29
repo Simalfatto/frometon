@@ -9,9 +9,11 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :cheeses, only: [:index, :map, :region, :show] do
     resources :reviews, only: [:new, :create]
+    resources :bookmarks, only: [:create]
+    post "forbidden", to: "bookmarks#forbidden", as: "forbidden"
   end
 
-  resources :bookmarks, only: [:index, :create]
+  resources :bookmarks, only: [:index]
 
   get "userprofiles/question_1" => "userprofiles#question_1", as: "question_1"
   get "userprofiles/question_2" => "userprofiles#question_2", as: "question_2"

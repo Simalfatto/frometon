@@ -1,16 +1,54 @@
 // ----------------------------------- CHEESE CARD ------------------------------------
 
-.image-cheese-show{
-  width: 200px;
-  height: 200px;
-}
+
 
 #cheese-card-show{
   border-radius: 15px;
   box-shadow: 0 0 15px rgba($color: #000000, $alpha: 0.5);
-  padding: 16px;
-  width: 90%;
+  color: #11101E;
+  padding: 16px 12px;
   transition: transform 1s ease;
+  margin: 0 auto;
+
+  & #top-card{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 15px 15px 0 0;
+    padding: 16px;
+  }
+
+  & #bottom-card{
+    text-align: center;
+    background-color: #F4ECEA;
+    border-radius: 0 0 15px 15px;
+    padding: 16px;
+  }
+
+  & .image-cheese-show{
+    width: 150px;
+    height: 150px;
+    border-radius: 8px;
+  }
+
+  & #icons-cheese{
+    height: 50px;
+    width: 50px;
+  }
+
+  & .cheese-informations{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+
+
+  }
+
+  & p{
+    margin: 0;
+  }
 }
 
 #cheese-card-show.mini{
@@ -50,10 +88,10 @@
 
 .buttons-cheese button{
   border: none;
-  background-color: #111020;
-  color: #fff;
+  background-color: #fff;
+  color: #11101E;
   padding: 8px 16px;
-  border-radius: 8px;
+  border-radius: 12px;
 }
 
 .buttons-cheese.remove{
