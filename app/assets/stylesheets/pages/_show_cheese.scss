@@ -97,3 +97,33 @@
 .buttons-cheese.remove{
   display: none;
 }
+
+
+//////////// IMAGE & NAME SELON Image slack /////////
+
+.card-name-img {
+  border: 1px solid;
+  border-color: #F6B16A;
+  padding: 10px;
+  border-radius: 15px;
+  text-align-last: right;
+  background-color: #181823;
+}
+.sub-card {
+  margin-left: 10%;
+  margin-right: 10%;
+  border: 1px solid;
+  border-color: #F6B16A;
+  border-radius: 15px;
+  box-shadow: none!important;
+  padding: 15px;
+  margin-bottom: 20px;
+
+}
+#content-middle {
+  background-color: grey;
+
+}
+#img-from {
+  border-radius: 10px;
+}

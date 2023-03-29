@@ -9,6 +9,21 @@
     padding: 16px;
 }
 
+#d-flexs{
+  position: relative;
+  // left: 50%;
+  // transform: translate(-50%,-50%);
+  transition: all 1s;
+  width: 50px;
+  height: 50px;
+  background: black;
+  box-sizing: border-box;
+  border-radius: 25px;
+  border: 4px solid black;
+  padding: 5px;
+  margin: -10px;
+}
+
 
 .form-control{
   position: absolute;
@@ -39,16 +54,13 @@
   font-size: 1.2em;
   transition: all 1s;
 }
-.fa:hover {
-  color:rgb(21, 225, 25) ;
-}
 
-.d-flex:hover{
+#d-flexs:hover{
   width: 300px;
   cursor: pointer;
 }
 
-.d-flex:hover input{
+#d-flexs:hover input{
   display: block;
 }
 
@@ -60,4 +72,9 @@
 #navbar-btn {
   background: none;
   border: none;
+}
+
+.logofrom {
+  width: 100px;
+  height: 55px;
 }
