@@ -1,6 +1,7 @@
 class BookmarksController < ApplicationController
   def index
     @bookmarks = Bookmark.where(user_id: current_user.id)
+    @forbiddens = Forbidden.where(user_id: current_user.id)
   end
 
   def new
@@ -9,7 +10,6 @@ class BookmarksController < ApplicationController
 
   def create
     @bookmark = Bookmark.new(bookmark_params)
-    raise
     @bookmark.user = current_user
     @bookmark.cheese = Cheese.find(params[:cheese_id])
     if @bookmark.save
