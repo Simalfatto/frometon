@@ -1,11 +1,25 @@
 <%= render "shared/navbar-top-default" %>
 <main class="content-middle">
-  <p>Bienvenue <%= @user.pseudo %></p>
-  <p><%= @user.email %></p>
-  <p><%= @bookmarks.length %> Favoris</p>
-  <p><%= @forbiddens.length %> Interdit</p>
-  <% @reviews.each do |r| %>
-    <p><%= r.content %> <%= r.rating %></p>
-  <% end %>
+  <div class="show-container">
+  <h1 class="profile-title">Bienvenue <br> <strong> <%= @user.pseudo %> ! </strong></h1>
+    <div class="basic-information">
+        <p>Mon e-mail : <%= @user.email %></p>
+        <p>Mon pseudo : <%= @user.pseudo %></p>
+        <p>Nombre de fromages favoris : <%= @bookmarks.length %> </p>
+        <p>Nombre de fromages délaissés : <%= @forbiddens.length %> </p>
+        <div class="reviews-user">
+          <% @reviews.each do |r| %>
+            <p><%= r.content %> <%= r.rating %></p>
+          <% end %>
+        </div>
+      </div>
+
+    <h2 class="cheese-preferences"> <strong> Mes préférences de fromage</strong> </h2>
+    <ul>
+      <li><p>Ma note concernant les fromages au lait de vache: <strong> <%= @user.score_search_vache %> </strong></p></li>
+      <li><p>Ma note concernant les fromages au lait de chèvre: <strong> <%= @user.score_search_chevre %> </strong></p></li>
+      <li><p>Ma note concernant les fromages au lait de brebis: <strong> <%= @user.score_search_brebis %> </strong> </p></li>
+    </ul>
+  </div>
 </main>
 <%= render "shared/navbar-bottom-default" %>
