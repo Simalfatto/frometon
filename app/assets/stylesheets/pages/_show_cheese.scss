@@ -1,6 +1,46 @@
+// ----------------------------------- CHEESE CARD ------------------------------------
+
 .image-cheese-show{
   width: 200px;
   height: 200px;
+}
+
+#cheese-card-show{
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba($color: #000000, $alpha: 0.5);
+  padding: 16px;
+  width: 90%;
+  transition: transform 1s ease;
+}
+
+#cheese-card-show.mini{
+  transform: scale(0.8) rotate(10deg);
+  transition: transform 1s ease;
+}
+
+
+// ----------------------------------- BUTTONS ------------------------------------
+.tinder-button{
+  display: none;
+}
+
+.tinder-button.display{
+  display: block;
+
+  & a{
+    text-decoration: none;
+  }
+
+  & .fa-solid{
+    font-size: 2rem;
+    background-color: #11101E;
+    color: #fff;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    padding: 9px;
+    border-radius: 50%;
+  }
 }
 
 .buttons-cheese {
@@ -14,4 +54,8 @@
   color: #fff;
   padding: 8px 16px;
   border-radius: 8px;
+}
+
+.buttons-cheese.remove{
+  display: none;
 }
