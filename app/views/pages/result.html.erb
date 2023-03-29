@@ -1,0 +1,14 @@
+<%= render "shared/navbar-top-default" %>
+<main class="content-middle">
+  <% if @cheese != [] && @cheese != nil %>
+    <%= @cheese.name %>
+    <%= image_tag @cheese.picture_url %>
+    <%= link_to "Voir ce fromage", cheese_path(@cheese) %>
+    <%= link_to "Relancer la recherche", reload_page_path %>
+    <%= link_to "retourner modifier mes paramètres", root_path %>
+  <% else %>
+    <p>Pas de fromage pour vos critères de recherche</p>
+    <%= link_to "retourner modifier mes paramètres", root_path %>
+  <% end %>
+</main>
+<%= render "shared/navbar-bottom-default" %>
