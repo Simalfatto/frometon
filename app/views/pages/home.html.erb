@@ -1,37 +1,42 @@
 <%= render "shared/navbar-top-default" %>
-<main class="content-middle" data-controller="roulette">
-  <h2>la roulette</h2>
-
+<main class="content-middle homepage" data-controller="roulette">
   <div>
-    <%= button_to 'Lancer la roulette', result_path, method: "get", params: {search_all: true} %>
-    <button data-action="click->roulette#display">Personnaliser la recherche</button>
-  </div>
-  <div data-roulette-target="parameters" class="d-none" id="form_roulette">
-    <%= form_tag(result_path, method: :get, class: :"form-check form-switch d-flex flex-column") do %>
-      <div>
-        <%= label_tag :"lait de vache" %>
-        <%= check_box_tag :vache, 1, true, class: "form-check-input" %>
+    <div>
+      <%= image_tag("roulette.png", width: '70%', id: "image-roulette") %>
+    </div>
+    <div class="search-roulette">
+      <div data-roulette-target="parameters" class="d-none" id="form_roulette">
+        <%= form_tag(result_path, method: :get, class: :"form-check form-switch d-flex flex-column") do %>
+          <div>
+            <%= label_tag :"lait de vache" %>
+            <%= check_box_tag :vache, 1, true, class: "form-check-input" %>
+          </div>
+          <div>
+            <%= label_tag :"lait de brebis" %>
+            <%= check_box_tag :brebis, 1, true, class: "form-check-input" %>
+          </div>
+          <div>
+            <%= label_tag :"lait de chèvre" %>
+            <%= check_box_tag :chèvre, 1, true, class: "form-check-input" %>
+          </div>
+          <div>
+            <%= label_tag :"AOP uniquement" %>
+            <%= check_box_tag :AOP, 0, false, class: "form-check-input" %>
+          </div>
+          <div>
+            <%= label_tag :"pour femme enceinte uniquement" %>
+            <%= check_box_tag :enceinte, 0, false, class: "form-check-input" %>
+          </div>
+          <div class="" id="fromage-search">
+            <%= submit_tag :rechercher %>
+          </div>
+        <% end %>
       </div>
       <div>
-        <%= label_tag :"lait de brebis" %>
-        <%= check_box_tag :brebis, 1, true, class: "form-check-input" %>
+        <%= button_to 'Chercher un fromage', result_path, id: "fromage-search", class: "justify-content-center",  method: "get", params: {search_all: true}, data: { roulette_target: 'button'} %>
+        <button id= "personnaliser" data-action="click->roulette#display">Personnaliser ma recherche</button>
       </div>
-      <div>
-        <%= label_tag :"lait de chèvre" %>
-        <%= check_box_tag :chèvre, 1, true, class: "form-check-input" %>
-      </div>
-      <div>
-        <%= label_tag :"AOP uniquement" %>
-        <%= check_box_tag :AOP, 0, false, class: "form-check-input" %>
-      </div>
-      <div>
-        <%= label_tag :"pour femme enceinte uniquement" %>
-        <%= check_box_tag :enceinte, 0, false, class: "form-check-input" %>
-      </div>
-      <div class="mt-2 d-flex">
-        <%= submit_tag :rechercher %>
-      </div>
-    <% end %>
+    </div>
   </div>
 
 </main>

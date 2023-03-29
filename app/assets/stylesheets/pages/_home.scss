@@ -1,1 +1,51 @@
 // Specific CSS for your home-page
+.homepage {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#image-roulette {
+  display: block;
+  margin: auto;
+}
+
+.search-roulette {
+  display: block;
+  margin: auto;
+}
+
+#fromage-search {
+  background-color: white;
+  font-size: 24px;
+  font-weight: bold;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 24px;
+  padding-right: 24px;
+  border-radius: 32px;
+  display: block;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+#personnaliser {
+  background-color: #F4ECEA;
+  font-size: 18px;
+  font-weight: bold;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 24px;
+  padding-right: 24px;
+  border-radius: 32px;
+  display: block;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+#form_roulette {
+  width: 90%;
+  background-color: red;
+  display: block;
+  margin: auto;
+}
