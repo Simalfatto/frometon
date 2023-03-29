@@ -6,16 +6,30 @@
       <i class="fa-solid fa-house"></i>
     <% end %>
     <div id="cheese-card-show" data-slide-cards-target="card">
-      <%= image_tag @cheese.picture_url, class: "image-cheese-show" %>
-      <p><%= @cheese.name %></p>
-      <p><%= @cheese.saison %></p>
-      <p><%= @cheese.affinage %></p>
-      <%= @cheese.pate %></p>
+      <div id="top-card">
+        <h1><%= @cheese.name %></h1>
+        <%= image_tag @cheese.picture_url, class: "image-cheese-show" %>
+      </div>
+      <div id="bottom-card">
+        <h2>Fromage de <%= @cheese.category.split("_")[0] %></h2>
+        <div class="cheese-informations">
+          <%= image_tag "SVG/fromage_1.svg", id: "icons-cheese" %>
+          <p><%= @cheese.pate %></p>
+        </div>
+        <div class="cheese-informations">
+          <%= render "shared/season_loader" %>
+          <p><%= @cheese.saison %></p>
+        </div>
+        <div class="cheese-informations">
+          <p>Affinage :</p>
+          <p><%= @cheese.affinage %></p>
+        </div>
+      </div>
     </div>
 
     <div class="tinder-button" data-slide-cards-target="tinderButtons">
-      <%= link_to "", bookmarks_path(@bookmark), method: "post", class: "fa-solid fa-heart" %>
-      <%= link_to "", root_path, class: "fa-solid fa-xmark" %>
+      <%= button_to "", cheese_bookmarks_path(@cheese), method: "post", class: "fa-solid fa-heart" %>
+      <%= button_to "", cheese_forbidden_path(@cheese), method: "post", class: "fa-solid fa-xmark" %>
     </div>
 
     <div class="buttons-cheese" data-slide-cards-target="cheeseButtons">

@@ -1,0 +1,17 @@
+.season-loader{
+  display: flex;
+  align-items: center;
+
+  & .printemps,
+  .été, .automne, .hiver{
+    display: flex;
+    margin-right: 4px;
+  }
+
+  & .carrée{
+    width: 4px;
+    height: 4px;
+    background-color: #000;
+    margin-right: 2px;
+  }
+}
