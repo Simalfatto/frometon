@@ -6,29 +6,87 @@ class PagesController < ApplicationController
   end
 
   def result
-    if current_user
+    if !params["search_all"].present?
+
       cheeses = Cheese.all
-      test = []
-      vaches = cheeses.where(lait: "vache")
-      current_user.score_search_vache.times do
-        vache = vaches.sample
-        test.push(vache)
-      end
 
-      brebis = cheeses.where(lait: "brebis")
-      current_user.score_search_brebis.times do
-        brebi = brebis.sample
-        test.push(brebi)
-      end
+      if current_user
+        selection = []
+        params["AOP"].present? ? cheeses = cheeses.select(&:filter_AOP) : cheeses
+        params["enceinte"].present? ? cheeses = cheeses.select(&:filter_pregnant) : cheeses
 
-      chevres = cheeses.where(lait: "chèvre")
-      current_user.score_search_chevre.times do
-        chevre = chevres.sample
-        test.push(chevre)
+        if params["vache"].present? && cheeses.select { |cheese| cheese.lait == "vache" } != []
+          vaches = cheeses.select { |cheese| cheese.lait == "vache" }
+          current_user.score_search_vache.times do
+            vache = vaches.sample
+            selection.push(vache)
+          end
+        end
+
+        if params["brebis"].present? && cheeses.select { |cheese| cheese.lait == "brebis" } != []
+          brebis = cheeses.select { |cheese| cheese.lait == "brebis" }
+          current_user.score_search_brebis.times do
+            brebi = brebis.sample
+            selection.push(brebi)
+          end
+        end
+
+        if params["chèvre"].present? && cheeses.select { |cheese| cheese.lait == "chèvre" } != []
+          chevres = cheeses.select { |cheese| cheese.lait == "chèvre" }
+          current_user.score_search_chevre.times do
+            chevre = chevres.sample
+            selection.push(chevre)
+          end
+        end
+
+        if selection == []
+          @cheese = []
+        else
+          @cheese = selection.sample
+        end
+
+      else
+        params["vache"].present? ? cheeses : cheeses = cheeses.reject(&:filter_vache)
+        params["brebis"].present? ? cheeses : cheeses = cheeses.reject(&:filter_brebis)
+        params["chèvre"].present? ? cheeses : cheeses = cheeses.reject(&:filter_chevre)
+        params["AOP"].present? ? cheeses = cheeses.select(&:filter_AOP) : cheeses
+        params["enceinte"].present? ? cheeses = cheeses.select(&:filter_pregnant) : cheeses
+        @cheese = cheeses.sample
       end
-      @cheese = test.sample
     else
-      @cheese = Cheese.order("RANDOM()").limit(1).first
+      if current_user
+        selection = []
+
+        vaches = Cheese.where(lait: "vache")
+        current_user.score_search_vache.times do
+          vache = vaches.sample
+          selection.push(vache)
+        end
+
+        brebis = Cheese.where(lait: "brebis")
+        current_user.score_search_brebis.times do
+          brebi = brebis.sample
+          selection.push(brebi)
+        end
+
+        chevres = Cheese.where(lait: "chèvre")
+        current_user.score_search_chevre.times do
+          chevre = chevres.sample
+          selection.push(chevre)
+        end
+
+        if selection == []
+          @cheese = []
+        else
+          @cheese = selection.sample
+        end
+      else
+        @cheese = Cheese.order("RANDOM()").limit(1).first
+      end
     end
+  end
+
+  def reload_page
+    redirect_back(fallback_location: root_path)
   end
 end

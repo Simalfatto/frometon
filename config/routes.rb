@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
   get "result", to: "pages#result", as: "result"
+  get '/reload_page', to: 'pages#reload_page', as: 'reload_page'
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # Defines the root path route ("/")
   # root "articles#index"
