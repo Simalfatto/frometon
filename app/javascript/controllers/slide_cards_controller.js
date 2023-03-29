@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="slide-cards"
 export default class extends Controller {
 
-  static targets = ["recipes", "wine", "story"]
+  static targets = ["recipes", "wine", "story", "card", "tinderButtons", "cheeseButtons"]
 
   slideOn(event) {
     if (event.target.innerText === "Recettes"){
@@ -23,4 +23,11 @@ export default class extends Controller {
     } else if (event.target.id == "story-list") {
       this.storyTarget.classList.remove("show");
     }
-}}
+  }
+
+  scale(){
+    this.cardTarget.classList.toggle('mini');
+    this.cheeseButtonsTarget.classList.toggle('remove');
+    this.tinderButtonsTarget.classList.toggle('display');
+  }
+}

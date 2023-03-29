@@ -1,18 +1,39 @@
 <%= render "shared/navbar-top-default" %>
-<main class="content-middle" data-controller="slide-cards">
-    <%= image_tag @cheese.picture_url, class: "image-cheese-show" %>
-    <p><%= @cheese.name %></p>
-    <p><%= @cheese.saison %></p>
-    <p><%= @cheese.affinage %></p>
-    <p><%= @cheese.pate %></p>
-    <div class="buttons-cheese">
+<main class="content-middle" id="content-middle" data-action="click->slide-cards#slideOff" data-controller="slide-cards">
+    <% if user_signed_in? %>
+      <i class="fa-regular fa-circle-xmark" data-action="click->slide-cards#scale"></i>
+    <% else %>
+      <i class="fa-solid fa-house"></i>
+    <% end %>
+    <div id="cheese-card-show" data-slide-cards-target="card">
+      <%= image_tag @cheese.picture_url, class: "image-cheese-show" %>
+      <p><%= @cheese.name %></p>
+      <p><%= @cheese.saison %></p>
+      <p><%= @cheese.affinage %></p>
+      <%= @cheese.pate %></p>
+    </div>
+
+    <div class="tinder-button" data-slide-cards-target="tinderButtons">
+      <%= link_to "", root_path, class: "fa-solid fa-heart" %>
+      <%= link_to "", root_path, class: "fa-solid fa-xmark" %>
+    </div>
+
+    <div class="buttons-cheese" data-slide-cards-target="cheeseButtons">
       <button id="button recipe" data-action="click->slide-cards#slideOn">Recettes</button>
       <button id="button wine" data-action="click->slide-cards#slideOn">Vins</button>
       <button id="button story" data-action="click->slide-cards#slideOn">Histoire</button>
     </div>
+
+    <%# <div id="sign-in-condition"> %>
+      <%# <%= link_to "back to roulette", root_path %>
+      <%# <%= link_to "créer un compte", new_user_registration_path%>
+    <%# </div> %>
+
     <div id="recipes-list" data-slide-cards-target="recipes" data-action="click->slide-cards#slideOff">
         <h2>Recettes du fromage</h2>
-        <p>test</p>
+        <% @recipes.each do |r| %>
+        <p><%= r.link_to_source %></p>
+        <% end %>
     </div>
     <div id="wine-list" data-slide-cards-target="wine" data-action="click->slide-cards#slideOff">
         <h2>Les vins conseillés</h2>
@@ -24,4 +45,3 @@
     </div>
 </main>
 <%= render "shared/navbar-bottom-default" %>
-
