@@ -8,9 +8,8 @@
     align-items: center;
     padding: 16px;
 }
-.d-flex{
+#d-flexs{
   position: relative;
-  top: 50%;
   // left: 50%;
   // transform: translate(-50%,-50%);
   transition: all 1s;
@@ -53,16 +52,13 @@
   font-size: 1.2em;
   transition: all 1s;
 }
-.fa:hover {
-  color:rgb(21, 225, 25) ;
-}
 
-.d-flex:hover{
+#d-flexs:hover{
   width: 300px;
   cursor: pointer;
 }
 
-.d-flex:hover input{
+#d-flexs:hover input{
   display: block;
 }
 
@@ -74,4 +70,8 @@
 #navbar-btn {
   background: none;
   border: none;
+}
+.logofrom {
+  width: 100px;
+  height: 55px;
 }

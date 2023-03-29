@@ -5,12 +5,22 @@
     <% else %>
       <i class="fa-solid fa-house"></i>
     <% end %>
-    <div id="cheese-card-show" data-slide-cards-target="card">
-      <%= image_tag @cheese.picture_url, class: "image-cheese-show" %>
-      <p><%= @cheese.name %></p>
-      <p><%= @cheese.saison %></p>
-      <p><%= @cheese.affinage %></p>
-      <%= @cheese.pate %></p>
+      <div class="card-name-img">
+        <div class="d-flex">
+          <div class="card-name">
+        <p class="text-white"><%= @cheese.name %></p>
+          </div>
+          <div class="card-img">
+        <%= image_tag @cheese.picture_url, class: "image-cheese-show", id:"img-from" %>
+          </div>
+      </div>
+    </div>
+    <div class="sub-card" >
+      <div data-slide-cards-target="card">
+        <p class="text-white"><%= @cheese.saison %></p>
+        <p class="text-white"><%= @cheese.affinage %></p>
+        <p class="text-white"><%= @cheese.pate %></p>
+      </div>
     </div>
 
     <div class="tinder-button" data-slide-cards-target="tinderButtons">

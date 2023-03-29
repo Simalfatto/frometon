@@ -9,7 +9,7 @@
   justify-content: start;
   align-items: center;
   margin-bottom: 8px;
-  background-color: rgb(237, 237, 237);
+  background-color: #F4ECEA;
   border-radius: 10px;
   padding: 8px;
 }
@@ -18,5 +18,11 @@ h5 {
   padding:  15px;
 }
 .content-middle h1 {
-  color: black;
+  color: whitesmoke;
+}
+.card-img-top
+{
+  border: 1px solid #F6B16A;
+  border-radius: 10px 10px 10px 10px;
+  box-shadow: 5px 5px 5px black;
 }
