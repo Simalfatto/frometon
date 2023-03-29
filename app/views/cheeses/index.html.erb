@@ -4,7 +4,7 @@
   <h1>Retour</h1>
   <% end %>
   <div class="card-product">
-  <% @cheeses.first(15).each do |cheese| %>
+  <% @cheeses.each do |cheese| %>
     <div class="card-body">
       <%= link_to cheese_path(cheese) do %>
       <%= image_tag cheese.picture_url, class: "card-img-top", style: "border: 1px solid #1d4851; border-radius: 10px 10px 10px 10px;" %>

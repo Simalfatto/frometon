@@ -2,7 +2,11 @@ class CheesesController < ApplicationController
   before_action :set_cheese, only: [:show, :edit, :update]
 
   def index
-    @cheeses = Cheese.all
+    if params[:query].present?
+      @cheeses = Cheese.where("name ILIKE ?", "%#{params[:query]}%")
+    else
+      @cheeses = Cheese.all
+    end
   end
 
   def show
@@ -16,11 +20,10 @@ class CheesesController < ApplicationController
   private
 
   def set_cheese
-		@cheese = Cheese.find(params[:id])
-	end
+    @cheese = Cheese.find(params[:id])
+  end
 
   def params_cheese
-
   end
 
 end
