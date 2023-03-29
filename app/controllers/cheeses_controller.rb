@@ -3,7 +3,11 @@ class CheesesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :show, :index ]
 
   def index
-    @cheeses = Cheese.all
+    if params[:query].present?
+      @cheeses = Cheese.where("name ILIKE ?", "%#{params[:query]}%")
+    else
+      @cheeses = Cheese.all
+    end
   end
 
   def show
@@ -18,7 +22,6 @@ class CheesesController < ApplicationController
   private
 
   def set_cheese
-		@cheese = Cheese.find(params[:id])
-	end
-
+    @cheese = Cheese.find(params[:id])
+  end
 end

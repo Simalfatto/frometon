@@ -1,5 +1,9 @@
 <nav class="navbar-top">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <%= form_with url: cheeses_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,params[:query],class: "form-control",placeholder: "Find a cheese", data: { navbar_target: "value" }%>
+        <i class="fa fa-search"></i>
+    <% end %>
+        IMAGES LOGO
     <%# connecter l'icone à la méthode search %>
     <i class="fa-solid fa-bars"></i>
     <%# réaliser %>
