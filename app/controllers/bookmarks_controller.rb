@@ -4,16 +4,16 @@ class BookmarksController < ApplicationController
   end
 
   def new
-
     @bookmark = Bookmark.new
   end
 
   def create
     @bookmark = Bookmark.new(bookmark_params)
+    raise
     @bookmark.user = current_user
     @bookmark.cheese = Cheese.find(params[:cheese_id])
-    if @review.save
-      redirect_to cheese_path, notice: "Merci pour votre commentaire"
+    if @bookmark.save
+      redirect_to root_path, notice: "Bien ajouté au favoris"
     else
       render :new, status: :unprocessable_entity
     end
@@ -22,6 +22,6 @@ class BookmarksController < ApplicationController
   private
 
   def bookmark_params
-    params.require(:booking).permit(:user_id, :cheese_id)
+    params.require(:bookmark).permit(:user_id, :cheese_id)
   end
 end

@@ -7,6 +7,7 @@ class CheesesController < ApplicationController
   end
 
   def show
+    @bookmark = Bookmark.new
     @recipes = Recipe.where(params[:cheese_id])
   end
 

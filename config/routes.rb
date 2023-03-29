@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create]
   end
 
-  resources :bookmarks, only: [:index]
+  resources :bookmarks, only: [:index, :create]
 
   get "userprofiles/question_1" => "userprofiles#question_1", as: "question_1"
   get "userprofiles/question_2" => "userprofiles#question_2", as: "question_2"
