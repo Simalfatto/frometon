@@ -6,9 +6,9 @@
     </div>
     <div class="search-roulette">
       <div data-roulette-target="parameters" class="d-none" id="form_roulette">
-        <button data-action="click->roulette#close" id= "icons-cross-home">
+        <div data-action="click->roulette#close" id= "icons-cross-home">
           <%= image_tag "SVG/cross.svg" %>
-        </button>
+        </div>
         <%= form_tag(result_path, method: :get, class: :"") do %>
           <div>
             <p>Lait de :</p>
