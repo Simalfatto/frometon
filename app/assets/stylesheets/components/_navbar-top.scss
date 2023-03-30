@@ -76,5 +76,10 @@
 
 .logofrom {
   width: 100px;
-  height: 55px;
+  height: auto;
+  transition: opacity 1s step-end;
+}
+
+.logofrom.d-none {
+  opacity: 0;
 }

@@ -6,35 +6,41 @@
     </div>
     <div class="search-roulette">
       <div data-roulette-target="parameters" class="d-none" id="form_roulette">
-        <%= form_tag(result_path, method: :get, class: :"form-check form-switch d-flex flex-column") do %>
+        <%= form_tag(result_path, method: :get, class: :"form-check form-switch") do %>
           <div>
-            <%= label_tag :"lait de vache" %>
-            <%= check_box_tag :vache, 1, true, class: "form-check-input" %>
+            <p>Lait de :</p>
+            <div>
+              <%= label_tag :"Vache" %>
+              <%= check_box_tag :vache, 1, true, class: "form-check-input" %>
+            </div>
+            <div>
+              <%= label_tag :"Brebis" %>
+              <%= check_box_tag :brebis, 1, true, class: "form-check-input" %>
+            </div>
+            <div>
+              <%= label_tag :"Chèvre" %>
+              <%= check_box_tag :chèvre, 1, true, class: "form-check-input" %>
+            </div>
           </div>
           <div>
-            <%= label_tag :"lait de brebis" %>
-            <%= check_box_tag :brebis, 1, true, class: "form-check-input" %>
+            <p>Produit uniquement :</p>
+            <div>
+              <%= label_tag :"AOP" %>
+              <%= check_box_tag :AOP, 0, false, class: "form-check-input" %>
+            </div>
+            <div>
+              <%= label_tag :"pour femme enceinte" %>
+              <%= check_box_tag :enceinte, 0, false, class: "form-check-input" %>
+            </div>
           </div>
-          <div>
-            <%= label_tag :"lait de chèvre" %>
-            <%= check_box_tag :chèvre, 1, true, class: "form-check-input" %>
-          </div>
-          <div>
-            <%= label_tag :"AOP uniquement" %>
-            <%= check_box_tag :AOP, 0, false, class: "form-check-input" %>
-          </div>
-          <div>
-            <%= label_tag :"pour femme enceinte uniquement" %>
-            <%= check_box_tag :enceinte, 0, false, class: "form-check-input" %>
-          </div>
-          <div class="" id="fromage-search">
-            <%= submit_tag :rechercher %>
+            <%= submit_tag :"Chercher un fromage" %>
+          <div class="" id="personnalized-search">
           </div>
         <% end %>
       </div>
       <div>
         <%= button_to 'Chercher un fromage', result_path, id: "fromage-search", class: "justify-content-center",  method: "get", params: {search_all: true}, data: { roulette_target: 'button'} %>
-        <button id= "personnaliser" data-action="click->roulette#display">Personnaliser ma recherche</button>
+        <button id= "personnaliser" data-action="click->roulette#display" data-roulette-target="btn2">Personnaliser ma recherche</button>
       </div>
     </div>
   </div>

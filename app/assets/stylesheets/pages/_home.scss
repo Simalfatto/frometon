@@ -40,12 +40,19 @@
   border-radius: 32px;
   display: block;
   margin: auto;
-  margin-bottom: 20px;
 }
 
 #form_roulette {
   width: 90%;
-  background-color: red;
-  display: block;
+  background-color: #11101E;
+  border: 0.5px solid #F6B16A;
+  border-radius: 15px;
+  padding: 10px 10px 0 10px;
+  display: flex;
+  flex-direction: column;
   margin: auto;
+}
+
+#personnalized-search {
+
 }

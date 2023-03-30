@@ -2,11 +2,11 @@
 <nav class="navbar-top" data-controller="navbar">
     <%= form_with url: cheeses_path, method: :get, id: "d-flexs" do %>
       <%= text_field_tag :query,params[:query],class: "form-control",placeholder: "Trouver votre fromage", data: { navbar_target: "value" }%>
-        <i class="fa fa-search" data-action="click->navbar#display"
-        ></i>
+      <i class="fa fa-search" data-action="click->navbar#display"></i>
     <% end %>
-          <%= image_tag 'logo.png', class: "logofrom", data: {
-            navbar_target: "logo" }%>
+    <%= link_to root_path do %>
+      <%= image_tag 'logo_simple.png', class: "logofrom", data: {navbar_target: "logo" }%>
+    <% end %>
 
     <%# connecter l'icone à la méthode search %>
     <i class="fa-solid fa-bars"></i>
