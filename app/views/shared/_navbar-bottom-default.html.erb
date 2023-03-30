@@ -1,5 +1,9 @@
 <nav class="navbar-bottom">
-    <%= link_to "", root_path, class: "fa-solid fa-house" %>
+  <%= link_to root_path, style: "text-decoration: none;" do  %>
+    <h1><%= image_tag("SVG/cheese-home", width: '25px', id: "icon-cheese-home") %></h1>
+  <% end %>
     <%= link_to "", bookmarks_path, class: "fa-solid fa-bookmark" %>
-    <%= link_to "", show_path, class: "fa-solid fa-user" %>
+    <%= link_to show_path, style: "text-decoration: none;" do  %>
+    <h1><%= image_tag("SVG/user", width: '25px', id: "icon-user-profile") %></h1>
+  <% end %>
 </nav>

@@ -1,10 +1,10 @@
 <%= render "shared/navbar-top-default" %>
 <main class="content-middle">
 
-<h2>Je me connecte à mon compte <strong> Frometon </strong></h2>
+<h2 class="devise-title">Je me connecte à mon compte <strong> Frometon </strong></h2>
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }) do |f| %>
-  <div class="form-inputs">
+  <div class="form-inputs-login">
     <%= f.input :email,
                 required: false,
                 autofocus: true,
@@ -14,15 +14,15 @@
                 required: false,
                 label: "Mon mot de passe",
                 input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+    <%= f.input :remember_me, label:"Se souvenir de moi", as: :boolean if devise_mapping.rememberable? %>
   </div>
 
-  <div class="form-actions">
+  <div class="form-actions-login">
     <%= f.button :submit, "Connexion" %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+  <%= render "devise/shared/links", style: "text-decoration:none;" %>
 
 </main>
 <%= render "shared/navbar-bottom-default" %>

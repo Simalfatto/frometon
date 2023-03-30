@@ -1,13 +1,13 @@
 <%= render "shared/navbar-top-default" %>
 <main class="content-middle">
   <h1> Votre avis  </h1>
-  <%= simple_form_for([@cheese, @review]) do |f| %>
+  <%= simple_form_for([@cheese, @review], html: { data: { controller: "submit" }}) do |f| %>
     <%= f.input :content, label: "Commentaire" %>
-    <%= f.input :rating, label: "Note", collection: Review::AUTHORIZED_RATINGS %>
+    <%= f.input :rating, label: "Note", collection: Review::AUTHORIZED_RATINGS, input_html: {data: {controller: "star-rating", action: "click->form-submit#submit"}} %>
     <div class="btn-bottom">
-      <%= f.button :submit, class: "button-primary" %>
+      <%= f.button :submit, class:"d-none" %>
+      <% end %>
       <%= link_to "Revenir sur les cheeses",  cheeses_path, class: "button-secondary" %>
     </div>
-  <% end %>
 </main>
 <%= render "shared/navbar-bottom-default" %>

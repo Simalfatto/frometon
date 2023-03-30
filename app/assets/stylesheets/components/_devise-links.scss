@@ -1,0 +1,130 @@
+
+--------------------------------------LOGIN-------------------------------------
+
+.form-actions {
+  color: white;
+}
+
+.form-inputs-login {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.devise-title {
+  font-size: 24px;
+  text-align: center;
+  padding: 15px;
+}
+
+.form-inputs-login {
+  margin: 20px 0;
+}
+
+.form-inputs-login label {
+  display: block;
+  margin-bottom: 10px;
+  margin-top: 15px;
+}
+
+.form-inputs-login input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.form-actions-login {
+  margin-top: 20px;
+}
+
+.form-actions-login input[type="submit"] {
+  background-color: #ED8E3A;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.form-actions-login input[type="submit"]:hover {
+  background-color: #fff;
+  color: #ED8E3A;
+  border: 1px solid #ED8E3A;
+}
+
+.devise-links a {
+  text-decoration: none;
+  color: white;
+  margin-left: 10px;
+}
+
+--------------------------------------SIGNUP------------------------------------
+
+.form-inputs-signup {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.devise-title-signup {
+  font-size: 24px;
+  text-align: center;
+  padding: 15px;
+}
+
+.form-inputs-signup {
+  margin: 20px 0;
+  border: 1px solid #ccc;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.form-inputs-signup label {
+  display: block;
+  margin-bottom: 10px;
+  margin-top: 15px;
+}
+
+.form-inputs-signup input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.form-actions-signup {
+  margin-top: 20px;
+}
+
+.form-actions-signup input[type="submit"] {
+  background-color: #ED8E3A;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.form-actions-signup input[type="submit"]:hover {
+  background-color: #fff;
+  color: #ED8E3A;
+  border: 1px solid #ED8E3A;
+}

@@ -1,5 +1,5 @@
 class Review < ApplicationRecord
-  belongs_to :cheese
+  belongs_to :cheese, polymorphic: true
   belongs_to :user
 
   AUTHORIZED_RATINGS = (0..5)
