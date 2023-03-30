@@ -1,18 +1,18 @@
 <%= render "shared/navbar-top-default" %>
 <main class="content-middle">
   <%= link_to root_path, style: "text-decoration: none;" do  %>
-  <h1>Retour</h1>
+    <h1><%= image_tag("SVG/arrow.svg", width: '25px', id: "arrow") %></h1>
   <% end %>
   <div class="card-product">
-  <% @cheeses.each do |cheese| %>
-    <div class="card-body">
-      <%= link_to cheese_path(cheese) do %>
-      <%= image_tag cheese.picture_url, class: "card-img-top"%>
+    <% @cheeses.each do |cheese| %>
+      <%= link_to cheese_path(cheese), class: "card-body-link", style: "text-decoration: none;" do %>
+        <div class="card-body">
+          <%= image_tag cheese.picture_url, class: "card-img-top"%>
+          <h5 class="card-title">
+            <%= cheese.name %></h5>
+        </div>
       <% end %>
-    <h5 class="card-title">
-    <%= cheese.name %></h5>
-    </div>
+    <% end %>
   </div>
-  <% end %>
 </main>
 <%= render "shared/navbar-bottom-default" %>
