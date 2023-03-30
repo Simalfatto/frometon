@@ -13,27 +13,31 @@
 
   <div class="tab-content" id="myTabContent">
       <div class="tab-pane fade show active" id="favoris-list" role="tabpanel" aria-labelledby="home-tab">
-        <div class="card-body">
-          <% @bookmarks.each do |bookmark| %>
+        <ul>
+        <% @bookmarks.each do |bookmark| %>
+          <div class="card-body"
             <%= link_to cheese_path(bookmark.cheese) do %>
             <%= image_tag bookmark.cheese.picture_url, class: "card-img-top", style: "border: 1px solid #1d4851; border-radius: 10px 10px 10px 10px;" %>
             <% end %>
-          <h5 class="card-title">
-          <%= bookmark.cheese.name %></h5>
-          <% end %>
-        </div>
+            <h5 class="card-title"> <%= bookmark.cheese.name %></h5>
+          </div>
+        <% end %>
+        </ul>
       </div>
 
+
       <div class="tab-pane fade" id="forbiddent-list" role="tabpanel" aria-labelledby="profile-tab">
-        <div class="card-body">
+          <ul>
           <% @forbiddens.each do |forbidden|%>
+            <div class="card-body">
             <%= link_to cheese_path(forbidden.cheese) do %>
             <%= image_tag forbidden.cheese.picture_url, class: "card-img-top", style: "border: 1px solid #1d4851; border-radius: 10px 10px 10px 10px;" %>
             <% end %>
           <h5 class="card-title">
           <%= forbidden.cheese.name %></h5>
+          </div>
           <% end %>
-        </div>
+          </ul>
       </div>
   </div>
 
