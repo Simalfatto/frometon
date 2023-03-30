@@ -9,31 +9,28 @@
         <div data-action="click->roulette#close" id= "icons-cross-home">
           <%= image_tag "SVG/cross.svg" %>
         </div>
-        <%= form_tag(result_path, method: :get, class: :"") do %>
+        <%= form_tag(result_path, method: :get) do %>
           <div>
             <p>Lait de :</p>
-            <div>
+            <div class="d-flex justify-content-between">
+              <%= check_box_tag :Vache, 1, true, class: "tag-selector" %>
               <%= label_tag :"Vache" %>
-              <%= check_box_tag :vache, 1, true, class: "form-check-input" %>
-            </div>
-            <div>
+
+              <%= check_box_tag :Brebis, 1, true, class: "tag-selector" %>
               <%= label_tag :"Brebis" %>
-              <%= check_box_tag :brebis, 1, true, class: "form-check-input" %>
-            </div>
-            <div>
-              <%= label_tag :"Chèvre" %>
-              <%= check_box_tag :chèvre, 1, true, class: "form-check-input" %>
+
+              <%= check_box_tag :Chevre, 1, true, class: "tag-selector" %>
+              <%= label_tag :"Chevre" %>
             </div>
           </div>
           <div>
             <p>Produit uniquement :</p>
-            <div>
+            <div class="d-flex justify-content-between">
+              <%= check_box_tag :AOP, 0, false, class: "tag-selector" %>
               <%= label_tag :"AOP" %>
-              <%= check_box_tag :AOP, 0, false, class: "form-check-input" %>
-            </div>
-            <div>
+
+              <%= check_box_tag :enceinte, 0, false, class: "tag-selector" %>
               <%= label_tag :"pour femme enceinte" %>
-              <%= check_box_tag :enceinte, 0, false, class: "form-check-input" %>
             </div>
           </div>
             <%= submit_tag :"Chercher un fromage" %>
