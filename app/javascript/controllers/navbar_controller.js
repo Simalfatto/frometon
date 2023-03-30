@@ -18,7 +18,7 @@ export default class extends Controller {
       // Remove the "d-none" class from the logo element
       setTimeout(() => {
         this.logoTarget.classList.remove("no-display");
-      }, 1000);
+      }, 500);
 
       // Remove the event listener from the document
       document.removeEventListener("click", this.handleClickOutside.bind(this));

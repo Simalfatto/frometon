@@ -1,14 +1,21 @@
 <%= render "shared/navbar-top-default" %>
-<main class="content-middle">
-  <% if @cheese != [] && @cheese != nil %>
-    <%= @cheese.name %>
-    <%= image_tag @cheese.picture_url %>
-    <%= link_to "Voir ce fromage", cheese_path(@cheese) %>
-    <%= link_to "Relancer la recherche", reload_page_path %>
-    <%= link_to "retourner modifier mes paramètres", root_path %>
-  <% else %>
-    <p>Pas de fromage pour vos critères de recherche</p>
-    <%= link_to "retourner modifier mes paramètres", root_path %>
-  <% end %>
+<main class="content-middle homepage">
+  <div id="cheese-result">
+    <% if @cheese != [] && @cheese != nil %>
+      <div id="cheese-result-card">
+        <div class="d-flex" style="align-self: end;flex-direction: column">
+          <h1><%= @cheese.name %></h1>
+          <%= link_to "Voir ce fromage", cheese_path(@cheese) %>
+        </div>
+        <%= image_tag @cheese.picture_url %>
+      </div>
+          <%= link_to "Relancer la recherche", reload_page_path, id: "link-second-result" %>
+          <br>
+          <%= link_to "Modifier mes paramètres", root_path, id: "link-second-result" %>
+    <% else %>
+      <p>Pas de fromage pour vos critères de recherche</p>
+      <%= link_to "Modifier mes paramètres", root_path %>
+    <% end %>
+  </div>
 </main>
 <%= render "shared/navbar-bottom-default" %>

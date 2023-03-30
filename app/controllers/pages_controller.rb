@@ -15,7 +15,7 @@ class PagesController < ApplicationController
         params["AOP"].present? ? cheeses = cheeses.select(&:filter_AOP) : cheeses
         params["enceinte"].present? ? cheeses = cheeses.select(&:filter_pregnant) : cheeses
 
-        if params["vache"].present? && cheeses.select { |cheese| cheese.lait == "vache" } != []
+        if params["Vache"].present? && cheeses.select { |cheese| cheese.lait == "vache" } != []
           vaches = cheeses.select { |cheese| cheese.lait == "vache" }
           current_user.score_search_vache.times do
             vache = vaches.sample
@@ -23,7 +23,7 @@ class PagesController < ApplicationController
           end
         end
 
-        if params["brebis"].present? && cheeses.select { |cheese| cheese.lait == "brebis" } != []
+        if params["Brebis"].present? && cheeses.select { |cheese| cheese.lait == "brebis" } != []
           brebis = cheeses.select { |cheese| cheese.lait == "brebis" }
           current_user.score_search_brebis.times do
             brebi = brebis.sample
@@ -31,7 +31,7 @@ class PagesController < ApplicationController
           end
         end
 
-        if params["chèvre"].present? && cheeses.select { |cheese| cheese.lait == "chèvre" } != []
+        if params["Chèvre"].present? && cheeses.select { |cheese| cheese.lait == "chèvre" } != []
           chevres = cheeses.select { |cheese| cheese.lait == "chèvre" }
           current_user.score_search_chevre.times do
             chevre = chevres.sample

@@ -1,5 +1,5 @@
 <%= render "shared/navbar-top-default" %>
-<main class="content-middle homepage" data-controller="roulette">
+<main class="content-middle homepage" data-controller="roulette" data-turbo="false">
   <div>
     <div>
       <%= image_tag("roulette.png", width: '70%', id: "image-roulette") %>
@@ -9,9 +9,9 @@
         <div data-action="click->roulette#close" id= "icons-cross-home">
           <%= image_tag "SVG/cross.svg" %>
         </div>
-        <%= form_tag(result_path, method: :get) do %>
+        <%= form_tag(result_path, method: :get, id: "form-home") do %>
           <div>
-            <p>Lait de :</p>
+            <p class="text-center">Lait de :</p>
             <div class="d-flex justify-content-between">
               <%= check_box_tag :Vache, 1, true, class: "tag-selector" %>
               <%= label_tag :"Vache" %>
@@ -19,21 +19,21 @@
               <%= check_box_tag :Brebis, 1, true, class: "tag-selector" %>
               <%= label_tag :"Brebis" %>
 
-              <%= check_box_tag :Chevre, 1, true, class: "tag-selector" %>
-              <%= label_tag :"Chevre" %>
+              <%= check_box_tag :Chèvre, 1, true, class: "tag-selector" %>
+              <%= label_tag :"Chèvre" %>
             </div>
           </div>
           <div>
-            <p>Produit uniquement :</p>
+            <p class="text-center mt-2">Produit uniquement :</p>
             <div class="d-flex justify-content-between">
               <%= check_box_tag :AOP, 0, false, class: "tag-selector" %>
               <%= label_tag :"AOP" %>
 
-              <%= check_box_tag :enceinte, 0, false, class: "tag-selector" %>
+              <%= check_box_tag :pour_femme_enceinte, 0, false, class: "tag-selector" %>
               <%= label_tag :"pour femme enceinte" %>
             </div>
           </div>
-            <%= submit_tag :"Chercher un fromage" %>
+            <%= submit_tag :"Chercher un fromage", id: "second-search" %>
         <% end %>
       </div>
       <%= button_to 'Chercher un fromage', result_path, id: "fromage-search", class: "justify-content-center",  method: "get", params: {search_all: true}, data: { roulette_target: 'button'} %>
