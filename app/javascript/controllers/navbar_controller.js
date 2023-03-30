@@ -8,7 +8,7 @@ export default class extends Controller {
     this.valueTarget.value = ""
   }
   display() {
-    this.logoTarget.classList.add("d-none");
+    this.logoTarget.classList.add("no-display");
     document.addEventListener("click", this.handleClickOutside.bind(this));
   }
 
@@ -17,7 +17,7 @@ export default class extends Controller {
     if (!event.target.closest("form")) {
       // Remove the "d-none" class from the logo element
       setTimeout(() => {
-        this.logoTarget.classList.remove("d-none");
+        this.logoTarget.classList.remove("no-display");
       }, 1000);
 
       // Remove the event listener from the document
