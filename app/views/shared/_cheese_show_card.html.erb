@@ -1,0 +1,36 @@
+<div id="cheese-card-show" data-slide-cards-target="card">
+  <div id="top-card">
+    <div class="logo-cheese-type">
+      <h1><%= @cheese.name %></h1>
+      <% if @cheese.filter_vache %>
+      <%= image_tag "vache.png", id: "icons-cheese-type" %>
+      <% elsif @cheese.filter_brebis %>
+        <%= image_tag "brebis.png", id: "icons-cheese-type" %>
+      <% else %>
+        <%= image_tag "chevre.png", id: "icons-cheese-type" %>
+      <% end %>
+    </div>
+    <%= image_tag @cheese.picture_url, class: "image-cheese-show" %>
+  </div>
+  <div id="bottom-card">
+    <% if @cheese.filter_vache %>
+      <h2>Fromage de vache</h2>
+    <% elsif @cheese.filter_brebis %>
+      <h2>Fromage de brebis</h2>
+    <% else %>
+      <h2>Fromage de chèvre</h2>
+    <% end %>
+    <div class="cheese-informations">
+      <%= image_tag "SVG/fromage_1.svg", id: "icons-cheese" %>
+      <p><%= @cheese.pate %></p>
+    </div>
+    <div class="cheese-informations">
+      <%= render "shared/season_loader" %>
+      <p><%= @cheese.saison %></p>
+    </div>
+    <div class="cheese-informations">
+      <p>Affinage :</p>
+      <p><%= @cheese.affinage %></p>
+    </div>
+  </div>
+</div>

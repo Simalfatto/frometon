@@ -1,36 +1,16 @@
 <%= render "shared/navbar-top-default" %>
 <main class="content-middle" id="content-middle" data-action="click->slide-cards#slideOff" data-controller="slide-cards">
-    <% if user_signed_in? %>
-      <i class="fa-regular fa-circle-xmark" data-action="click->slide-cards#scale"></i>
-    <% else %>
-      <i class="fa-solid fa-house"></i>
-    <% end %>
-    <div id="cheese-card-show" data-slide-cards-target="card">
-      <div id="top-card">
-        <h1><%= @cheese.name %></h1>
-        <%= image_tag @cheese.picture_url, class: "image-cheese-show" %>
-      </div>
-      <div id="bottom-card">
-        <h2>Fromage de <%= @cheese.category.split("_")[0] %></h2>
-        <div class="cheese-informations">
-          <%= image_tag "SVG/fromage_1.svg", id: "icons-cheese" %>
-          <p><%= @cheese.pate %></p>
-        </div>
-        <div class="cheese-informations">
-          <%= render "shared/season_loader" %>
-          <p><%= @cheese.saison %></p>
-        </div>
-        <div class="cheese-informations">
-          <p>Affinage :</p>
-          <p><%= @cheese.affinage %></p>
-        </div>
-      </div>
-    </div>
 
-    <div class="tinder-button" data-slide-cards-target="tinderButtons">
-      <%= button_to "", cheese_bookmarks_path(@cheese), method: "post", class: "fa-solid fa-heart" %>
-      <%= button_to "", cheese_forbidden_path(@cheese), method: "post", class: "fa-solid fa-xmark" %>
-    </div>
+    <% if user_signed_in? %>
+      <%= image_tag "SVG/cross.svg", id: "icons-cross-user", data: { action: "click->slide-cards#user", slide_cards_target: "iconCross"} %>
+      <i class="fa-regular fa-circle-xmark" data-action="click->slide-cards#scale"></i>
+      <%= render "shared/cheese_show_card" %>
+    <% else %>
+      <div class="parent-cheese-card">
+        <%= image_tag "SVG/cross.svg", id: "icons-cross-visitor", data: { action: "click->slide-cards#visitor", slide_cards_target: "iconCross"} %>
+        <%= render "shared/cheese_show_card" %>
+      </div>
+    <% end %>
 
     <div class="buttons-cheese" data-slide-cards-target="cheeseButtons">
       <button id="button recipe" data-action="click->slide-cards#slideOn">Recettes</button>
@@ -38,10 +18,21 @@
       <button id="button story" data-action="click->slide-cards#slideOn">Histoire</button>
     </div>
 
-    <%# <div id="sign-in-condition"> %>
-      <%# <%= link_to "back to roulette", root_path %>
-      <%# <%= link_to "créer un compte", new_user_registration_path%>
-    <%# </div> %>
+    <%# Affichage tinder-button si click icone croix && statut : user %>
+    <div class="tinder-button" data-slide-cards-target="tinderButtons">
+      <%= button_to "", cheese_bookmarks_path(@cheese), method: "post", class: "fa-solid fa-heart" %>
+      <%= button_to "", cheese_forbidden_path(@cheese), method: "post", class: "fa-solid fa-xmark" %>
+    </div>
+
+    <%# Affichage sign-in-button si click icone croix && statut : %>
+    <div id="sign-in-condition" data-slide-cards-target= "signIn">
+      <%= link_to "Retour à la roulette", root_path, class: "home-path-btn" %>
+      <div class= "sign-in-btn">
+        <%= link_to "Créer ton compte", new_user_registration_path %>
+        <p>Personnalise ton profil et découvre les fromages qui te correspondent</p>
+      </div>
+
+    </div>
 
     <div id="recipes-list" data-slide-cards-target="recipes" data-action="click->slide-cards#slideOff">
         <h2>Recettes du fromage</h2>
