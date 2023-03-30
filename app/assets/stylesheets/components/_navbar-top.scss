@@ -80,9 +80,11 @@
 .logofrom {
   width: 100px;
   height: auto;
-  transition: opacity 1s step-end;
+  opacity: 1;
+  transition: opacity 0.5s linear;
 }
 
-.logofrom.d-none {
+.logofrom.no-display {
   opacity: 0;
+  transition: opacity 0.5s linear;
 }
