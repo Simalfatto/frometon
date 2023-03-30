@@ -2,9 +2,22 @@
 <main class="content-middle" id="content-middle" data-action="click->slide-cards#slideOff" data-controller="slide-cards">
 
     <% if user_signed_in? %>
-      <%= image_tag "SVG/cross.svg", id: "icons-cross-user", data: { action: "click->slide-cards#user", slide_cards_target: "iconCross"} %>
-      <i class="fa-regular fa-circle-xmark" data-action="click->slide-cards#scale"></i>
-      <%= render "shared/cheese_show_card" %>
+      <% if @bookmarks.any? { |bookmark| bookmark.cheese_id === @cheese.id} %>
+          <%= render "shared/cheese_show_card" %>
+        <div class="verif-favoris">
+          <p>Ce fromage est déjà présent dans vos favoris</p>
+        </div>
+      <% elsif @forbiddens .any? { |forbidden| forbidden.cheese_id === @cheese.id}%>
+          <%= render "shared/cheese_show_card" %>
+        <div class="verif-favoris">
+          <p>Ce fromage est déjà présent dans vos indésirables</p>
+        </div>
+      <% else %>
+        <div class="parent-cheese-card">
+          <%= image_tag "SVG/cross.svg", id: "icons-cross-user", data: { action: "click->slide-cards#user", slide_cards_target: "iconCross"} %>
+          <%= render "shared/cheese_show_card" %>
+        </div>
+      <% end %>
     <% else %>
       <div class="parent-cheese-card">
         <%= image_tag "SVG/cross.svg", id: "icons-cross-visitor", data: { action: "click->slide-cards#visitor", slide_cards_target: "iconCross"} %>
@@ -26,27 +39,43 @@
 
     <%# Affichage sign-in-button si click icone croix && statut : %>
     <div id="sign-in-condition" data-slide-cards-target= "signIn">
-      <%= link_to "Retour à la roulette", root_path, class: "home-path-btn" %>
       <div class= "sign-in-btn">
         <%= link_to "Créer ton compte", new_user_registration_path %>
         <p>Personnalise ton profil et découvre les fromages qui te correspondent</p>
       </div>
-
+      <%= link_to "Retour à la roulette", root_path, class: "home-path-btn" %>
     </div>
 
     <div id="recipes-list" data-slide-cards-target="recipes" data-action="click->slide-cards#slideOff">
+      <div class="wrapper-child">
+        <%= image_tag "SVG/cross.svg", id: "icon-cross-recipe" %>
         <h2>Recettes du fromage</h2>
         <% @recipes.each do |r| %>
-        <p><%= r.link_to_source %></p>
+          <div class="recipes-item">
+            <%= image_tag(r.picture_url) %>
+            <div class="content-recipe" >
+              <p><%= r.content %></p>
+              <%= link_to "Voir la recette", r.link_to_source, target: "_blank", class: "link-button-recipe" %>
+            </div>
+          </div>
         <% end %>
+      </div>
     </div>
     <div id="wine-list" data-slide-cards-target="wine" data-action="click->slide-cards#slideOff">
+      <div class="wrapper-child">
+        <%= image_tag "SVG/cross.svg", id: "icon-cross-wine" %>
         <h2>Les vins conseillés</h2>
         <p><%= @cheese.wine %></p>
+      </div>
     </div>
     <div id="story-list" data-slide-cards-target="story" data-action="click->slide-cards#slideOff">
+      <div class="wrapper-child">
+        <%= image_tag "SVG/cross.svg", id: "icon-cross-story" %>
         <h2>Histoire du fromage</h2>
         <p><%= @cheese.description_1 %></p>
+        <h2>Temps d'affinage</h2>
+        <p><%= @cheese.affinage %></p>
+      </div>
     </div>
 </main>
 <%= render "shared/navbar-bottom-default" %>

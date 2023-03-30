@@ -1,22 +1,24 @@
 <div class="season-loader">
+  <% seasons = @cheese.saison %>
   <div class="printemps">
-    <div class="carrée"></div>
-    <div class="carrée"></div>
-    <div class="carrée"></div>
+    <div class="carrée" style="background-color: <% if seasons["Printemps"] %> #11101E <% else %> #959599 <% end %>"></div>
+    <div class="carrée" style="background-color: <% if seasons["Printemps"] %> #11101E <% else %> #959599 <% end %>"></div>
+    <div class="carrée" style="background-color: <% if seasons["Printemps"] %> #11101E <% else %> #959599 <% end %>"></div>
   </div>
   <div class="été">
-    <div class="carrée"></div>
-    <div class="carrée"></div>
-    <div class="carrée"></div>
+    <div class="carrée" style="background-color: <% if seasons["Eté"] %> #11101E <% else %> #959599 <% end %>"></div>
+    <div class="carrée" style="background-color: <% if seasons["Eté"] %> #11101E <% else %> #959599 <% end %>"></div>
+    <div class="carrée" style="background-color: <% if seasons["Eté"] %> #11101E <% else %> #959599 <% end %>"></div>
   </div>
   <div class="automne">
-    <div class="carrée"></div>
-    <div class="carrée"></div>
-    <div class="carrée"></div>
+    <div class="carrée" style="background-color: <% if seasons["Automne"] %> #11101E <% else %> #959599 <% end %>"></div>
+    <div class="carrée" style="background-color: <% if seasons["Automne"] %> #11101E <% else %> #959599 <% end %>"></div>
+    <div class="carrée" style="background-color: <% if seasons["Automne"] %> #11101E <% else %> #959599 <% end %>"></div>
   </div>
   <div class="hiver">
-    <div class="carrée"></div>
-    <div class="carrée"></div>
-    <div class="carrée"></div>
+    <div class="carrée" style="background-color: <% if seasons["Hiver"] %> #11101E <% else %> #959599 <% end %>"></div>
+    <div class="carrée" style="background-color: <% if seasons["Hiver"] %> #11101E <% else %> #959599 <% end %>"></div>
+    <div class="carrée" style="background-color: <% if seasons["Hiver"] %> #11101E <% else %> #959599 <% end %>"></div>
+
   </div>
 </div>

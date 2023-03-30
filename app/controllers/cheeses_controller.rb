@@ -11,8 +11,9 @@ class CheesesController < ApplicationController
   end
 
   def show
-    @bookmark = Bookmark.new
-    @recipes = Recipe.where(params[:cheese_id])
+    @forbiddens = Forbidden.where(user_id: current_user.id)
+    @bookmarks = Bookmark.where(user_id: current_user.id)
+    @recipes = Recipe.where(cheese_id: @cheese.id)
   end
 
   def new
