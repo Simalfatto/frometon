@@ -8,20 +8,26 @@ export default class extends Controller {
   slideOn(event) {
     if (event.target.innerText === "Recettes"){
       this.recipesTarget.classList.add("show");
+      this.iconCrossTarget.classList.add("d-none");
     } else if (event.target.innerText === "Vins") {
       this.wineTarget.classList.add("show");
+      this.iconCrossTarget.classList.add("d-none");
     } else if (event.target.innerText === "Histoire") {
       this.storyTarget.classList.add("show");
+      this.iconCrossTarget.classList.add("d-none");
     }
   }
 
   slideOff(event){
-    if (event.target.id == "recipes-list"){
+    if (event.target.id == "icon-cross-recipe"){
       this.recipesTarget.classList.remove("show");
-    }else if (event.target.id == "wine-list") {
+      this.iconCrossTarget.classList.remove("d-none");
+    }else if (event.target.id == "icon-cross-wine") {
       this.wineTarget.classList.remove("show");
-    } else if (event.target.id == "story-list") {
+      this.iconCrossTarget.classList.remove("d-none");
+    } else if (event.target.id == "icon-cross-story") {
       this.storyTarget.classList.remove("show");
+      this.iconCrossTarget.classList.remove("d-none");
     }
   }
 
