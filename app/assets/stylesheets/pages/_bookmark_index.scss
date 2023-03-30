@@ -8,6 +8,17 @@
   color: #fff;
 }
 
+button#home-tab {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+
+.tab-pane ul {
+  padding: 0;
+}
+
+
 #myTab {
   display: flex;
   justify-content: space-evenly;
@@ -24,4 +35,10 @@
 .nav-link {
   padding: 10px 20px;
   border: none;
+}
+
+.card-body-bookmark{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
