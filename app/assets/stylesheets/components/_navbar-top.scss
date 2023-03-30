@@ -88,3 +88,23 @@
   opacity: 0;
   transition: opacity 0.5s linear;
 }
+
+
+.all_link a {
+  color: #F6B16A;
+  text-decoration: none;
+  margin: 10px;
+  padding: 10px;
+}
+a.lien  {
+  display: block;
+
+}
+.all_link {
+  z-index: 10;
+  margin: 10px;
+}
+p.lien {
+  margin: -15px;
+  padding: -27px;
+}

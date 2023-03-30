@@ -7,7 +7,18 @@
     <%= link_to root_path do %>
       <%= image_tag 'logo_simple.png', class: "logofrom", data: {navbar_target: "logo" }%>
     <% end %>
-    <i class="fa-solid fa-bars" id="menu-icon"></i>
+    <i class="fa-solid fa-bars" id="menu-icon" data-action="click->navbar#displayLink" ></i>
+    <div class="all_link d-none" data-navbar-target="link">
+    <%= link_to userprofiles_profil_path do %>
+    <p class="lien">Mon profil</p>
+    <% end %>
+    <%= link_to bookmarks_path do %>
+    <p class="lien">Mes Favoris</p>
+    <% end %>
+    <%= link_to destroy_user_session_path do %>
+    <p class="lien">Déconnexion</p>
+    <% end %>
+    </div>
     <%# connecter l'icone à la méthode search %>
     <%# réaliser %>
 </nav>
