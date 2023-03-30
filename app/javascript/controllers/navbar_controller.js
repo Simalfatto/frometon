@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="navbar"
 export default class extends Controller {
-  static targets = ["value", "logo"]
+  static targets = ["value", "logo", "link"]
 
   connect() {
     this.valueTarget.value = ""
@@ -24,5 +24,10 @@ export default class extends Controller {
       document.removeEventListener("click", this.handleClickOutside.bind(this));
     }
   }
+  displayLink() {
 
+    this.linkTarget.classList.toggle("d-none")
+    // recuperer div allLink(target)
+    // enlever la class d'none
+  }
 }
