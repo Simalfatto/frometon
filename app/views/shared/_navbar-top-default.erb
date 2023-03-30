@@ -1,7 +1,7 @@
 
 <nav class="navbar-top" data-controller="navbar">
     <%= form_with url: cheeses_path, method: :get, id: "d-flexs" do %>
-      <%= text_field_tag :query,params[:query],class: "form-control",placeholder: "Trouver votre fromage", data: { navbar_target: "value" }%>
+      <%= text_field_tag :query,params[:query],class: "form-control-navbar",placeholder: "Trouver votre fromage", data: { navbar_target: "value" }%>
       <i class="fa fa-search" data-action="click->navbar#display"></i>
     <% end %>
     <%= link_to root_path do %>
@@ -9,6 +9,21 @@
     <% end %>
 
     <%# connecter l'icone à la méthode search %>
-    <i class="fa-solid fa-bars"></i>
+    <i class="fa-solid fa-bars" id="menu-icon">
+      <%= link_to '#', class: 'menu-item', data: { action: 'click->navbar#toggleMenu' } do %>
+      Menu
+      <% end %>
+      <div id="menu-dropdown" style="display: none;">
+        <%= link_to bookmarks_path, class: 'menu-item' do %>
+        Favoris
+        <% end %>
+        <%= link_to users_path, class: 'menu-item' do %>
+        Mon Profil
+        <% end %>
+        <%= link_to , method: :delete, class: 'menu-item' do %>
+        Déconnexion
+        <% end %>
+      </div>
+    </i>
     <%# réaliser %>
 </nav>
