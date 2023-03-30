@@ -1,31 +1,36 @@
-<h2>Sign up</h2>
+<%= render "shared/navbar-top-default" %>
+<main class="content-middle">
+
+<h2>Crée ton compte <strong> Frometon </strong> !</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
   <%= f.error_notification %>
-
   <div class="form-inputs">
     <%= f.input :email,
                 required: true,
                 autofocus: true,
-                input_html: { autocomplete: "email" }%>
+                label: "Mon adresse email :",
+                input_html: { autocomplete: "Mon email" }%>
     <%= f.input :pseudo,
-                required: false,
+                required: true,
                 autofocus: true,
-                input_html: { autocomplete: "pseudo" } %>
+                label: "Mon pseudo :",
+                input_html: { autocomplete: "Mon pseudo" }%>
     <%= f.input :password,
                 required: true,
+                label: "Mon mot de passe :",
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
+                input_html: { autocomplete: "Mot de passe" } %>
     <%= f.input :password_confirmation,
                 required: true,
-                input_html: { autocomplete: "new-password" } %>
+                label: "Confirmation de mon mot de passe :",
+                input_html: { autocomplete: "Confirmation du mot de passe" } %>
   </div>
-
   <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+    <%= f.button :submit, "Je crée mon compte" %>
   </div>
 <% end %>
-
-<%# redirection vers Fromagator %>
-
 <%= render "devise/shared/links" %>
+
+</main>
+<%= render "shared/navbar-bottom-default" %>
