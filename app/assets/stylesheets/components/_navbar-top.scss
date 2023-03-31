@@ -93,8 +93,7 @@
 .all_link a {
   color: #F6B16A;
   text-decoration: none;
-  margin: 10px;
-  padding: 10px;
+
 }
 a.lien  {
   display: block;
@@ -105,6 +104,27 @@ a.lien  {
   margin: 10px;
 }
 p.lien {
-  margin: -15px;
-  padding: -27px;
+  background-color: #11101E;
+  margin: 7px 0 0 0;
+}
+
+.all_link {
+  z-index: 10;
+  margin: 0px;
+  position: absolute;
+  right: 0;
+  transition: opacity 0s linear;
+  background-color: #11101E;
+  top: 55px;
+  border-top:1px solid #F6B16A;
+  border-left: 1px solid #F6B16A;
+  border-bottom: 1px solid #F6B16A;
+  padding:10px;
+
+}
+
+p.lienn{
+  border-bottom: 1px solid #F6B16A;
+  padding: 7px;
+  margin: 0px;
 }
