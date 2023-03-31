@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :cheeses, only: [:index, :map, :region, :show] do
     resources :reviews, only: [:new, :create]
-    resources :bookmarks, only: [:create]
+    resources :bookmarks, only: [:create, :destroy]
     post "forbidden", to: "bookmarks#forbidden", as: "forbidden"
   end
 

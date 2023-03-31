@@ -6,11 +6,11 @@
 
         <div class="sliders">
           <p class="question-fromagator">Sur une échelle de 1 à 10, à quel point aimes-tu les fromages au <strong> lait de vache </strong> ? </p>
-          <div class="form-fromagator"><%= form_with(url: question_2_path, method: :get) do |f| %> </div>
-          <%= f.range_field :score_search_vache, in: 0..10, step:"1", value: @user.score_search_vache, oninput: "output.value = score_search_vache.value" %>
-          <div class="output-and-submit">
-            <div class="score">
-              <p> Ton choix :  </p>
+          <%= form_with(url: question_2_path, method: :get) do |f| %>
+            <%= f.range_field :score_search_vache, in: 0..10, step:"1", value: @user.score_search_vache, oninput: "output.value = score_search_vache.value" %>
+            <div class="output-and-submit">
+              <div class="score">
+                <p> Ton choix :  </p>
               <output id="output"><%= @user.score_search_vache%></output>
             </div>
             <%= f.submit "Valider", id: "fromagator_submit_button" %>

@@ -16,10 +16,16 @@
         <ul>
         <% @bookmarks.each do |bookmark| %>
           <div class="card-body">
-          <%= link_to cheese_path(bookmark.cheese) do %>
-            <%= image_tag bookmark.cheese.picture_url, class: "card-img-top", style: "border: 1px solid #1d4851; border-radius: 10px 10px 10px 10px;" %>
+            <%= link_to cheese_path(bookmark.cheese) do %>
+              <%= image_tag bookmark.cheese.picture_url, class: "card-img-top", style: "border: 1px solid #1d4851; border-radius: 10px 10px 10px 10px;" %>
             <% end %>
-            <h5 class="card-title"> <%= bookmark.cheese.name %></h5>
+            <div class="title-card-body">
+              <h5 class="card-title"> <strong><%= bookmark.cheese.name %> </strong></h5>
+              <div class="buttons-review-delete-card">
+                <%= link_to "Supprimer", cheese_bookmark_path(bookmark.cheese, bookmark), data: {turbo_method: :delete, turbo_confirm: "Are your sure?"} %>
+                <%= link_to "Noter", new_cheese_review_path(bookmark.cheese) %>
+              </div>
+            </div>
           </div>
         <% end %>
         </ul>
