@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :home, :result ]
+  skip_before_action :authenticate_user!, only: [ :home, :result, :reload_page ]
 
   def home
 
@@ -13,7 +13,7 @@ class PagesController < ApplicationController
       if current_user
         selection = []
         params["AOP"].present? ? cheeses = cheeses.select(&:filter_AOP) : cheeses
-        params["enceinte"].present? ? cheeses = cheeses.select(&:filter_pregnant) : cheeses
+        params["pour_femme_enceinte"].present? ? cheeses = cheeses.select(&:filter_pregnant) : cheeses
 
         if params["Vache"].present? && cheeses.select { |cheese| cheese.lait == "vache" } != []
           vaches = cheeses.select { |cheese| cheese.lait == "vache" }
@@ -46,11 +46,11 @@ class PagesController < ApplicationController
         end
 
       else
-        params["vache"].present? ? cheeses : cheeses = cheeses.reject(&:filter_vache)
-        params["brebis"].present? ? cheeses : cheeses = cheeses.reject(&:filter_brebis)
-        params["chèvre"].present? ? cheeses : cheeses = cheeses.reject(&:filter_chevre)
+        params["Vache"].present? ? cheeses : cheeses = cheeses.reject(&:filter_vache)
+        params["Brebis"].present? ? cheeses : cheeses = cheeses.reject(&:filter_brebis)
+        params["Chèvre"].present? ? cheeses : cheeses = cheeses.reject(&:filter_chevre)
         params["AOP"].present? ? cheeses = cheeses.select(&:filter_AOP) : cheeses
-        params["enceinte"].present? ? cheeses = cheeses.select(&:filter_pregnant) : cheeses
+        params["pour_femme_enceinte"].present? ? cheeses = cheeses.select(&:filter_pregnant) : cheeses
         @cheese = cheeses.sample
       end
     else

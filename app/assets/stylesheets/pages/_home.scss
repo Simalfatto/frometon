@@ -15,6 +15,10 @@
   margin: auto;
 }
 
+.search-roulette button {
+  border: none;
+}
+
 #fromage-search {
   background-color: white;
   font-size: 24px;
@@ -93,8 +97,6 @@
   font-weight: 500;
   padding-top: 8px;
   padding-bottom: 8px;
-  padding-left: 24px;
-  padding-right: 24px;
   border-radius: 32px;
   position: relative;
   translate: 0 50%;

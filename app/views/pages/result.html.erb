@@ -1,5 +1,5 @@
 <%= render "shared/navbar-top-default" %>
-<main class="content-middle homepage">
+<main class="content-middle homepage" data-turbo="false">
   <div id="cheese-result">
     <% if @cheese != [] && @cheese != nil %>
       <div id="cheese-result-card">
@@ -13,8 +13,8 @@
           <br>
           <%= link_to "Modifier mes paramètres", root_path, id: "link-second-result" %>
     <% else %>
-      <p>Pas de fromage pour vos critères de recherche</p>
-      <%= link_to "Modifier mes paramètres", root_path %>
+      <p class="text-center mb-5">Pas de fromage pour vos critères de recherche...</p>
+      <%= link_to "Modifier mes paramètres", root_path, id: "link-second-result" %>
     <% end %>
   </div>
 </main>

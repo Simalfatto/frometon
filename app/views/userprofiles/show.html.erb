@@ -5,8 +5,8 @@
     <div class="basic-information">
         <p>Mon e-mail : <%= @user.email %></p>
         <p>Mon pseudo : <%= @user.pseudo %></p>
-        <p>Nombre de fromages favoris : <%= @bookmarks.length %> </p>
-        <p>Nombre de fromages délaissés : <%= @forbiddens.length %> </p>
+        <p>Fromages dans ma liste d'envies : <strong><%= @bookmarks.length %></strong> </p>
+        <p>Fromages laissés de côté : <strong><%= @forbiddens.length %></strong> </p>
         <div class="reviews-user">
           <% @reviews.each do |r| %>
             <p><%= r.content %> <%= r.rating %></p>
@@ -14,12 +14,15 @@
         </div>
       </div>
 
-    <h2 class="cheese-preferences"> <strong> Mes préférences de fromage</strong> </h2>
-    <ul>
-      <li><p>Ma note concernant les fromages au lait de vache: <strong> <%= @user.score_search_vache %> </strong></p></li>
-      <li><p>Ma note concernant les fromages au lait de chèvre: <strong> <%= @user.score_search_chevre %> </strong></p></li>
-      <li><p>Ma note concernant les fromages au lait de brebis: <strong> <%= @user.score_search_brebis %> </strong> </p></li>
+    <h2 class="cheese-preferences"> <strong> Mes goûts</strong> </h2>
+    <ul style="list-style-type: none; padding-left: 0">
+      <li class="text-center">
+        <p>Fromages au lait de vache: <strong> <%= @user.score_search_vache %></strong>/10</p>
+      </li>
+      <li class="text-center"><p>Fromages au lait de chèvre: <strong> <%= @user.score_search_chevre %></strong>/10</p></li>
+      <li class="text-center"><p>Fromages au lait de brebis: <strong> <%= @user.score_search_brebis %></strong>/10</p></li>
     </ul>
+    <%= link_to "Modifier mes préférences", question_1_path, id: "modifier-choix" %>
   </div>
 </main>
 <%= render "shared/navbar-bottom-default" %>
