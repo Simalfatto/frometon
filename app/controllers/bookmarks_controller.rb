@@ -24,7 +24,7 @@ class BookmarksController < ApplicationController
     @forbidden.user = current_user
     @forbidden.cheese = Cheese.find(params[:cheese_id])
     if @forbidden.save
-      redirect_to root_path, notice: "Bien ajouté aux interdits"
+      redirect_to root_path, notice: "Bien ajouté aux rejets"
     else
       render :new, status: :unprocessable_entity
     end
@@ -33,6 +33,8 @@ class BookmarksController < ApplicationController
   def destroy
     @bookmark = Bookmark.find(params[:id])
     @bookmark.destroy
+    @forbidden = Forbidden.find(params[:id])
+    @forbidden.destroy
     redirect_to bookmarks_path, notice: "Ce fromage a bien été supprimé de votre liste"
   end
 

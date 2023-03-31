@@ -3,11 +3,11 @@
 
   <ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
-      <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#favoris-list" type="button" role="tab" aria-controls="favoris-list" aria-selected="true">Mes favoris</button>
+      <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#favoris-list" type="button" role="tab" aria-controls="favoris-list" aria-selected="true">Mes envies</button>
     </li>
 
     <li class="nav-item" role="presentation">
-      <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#forbiddent-list" type="button" role="tab" aria-controls="forbiddent-list" aria-selected="false">Mes indésirables</button>
+      <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#forbiddent-list" type="button" role="tab" aria-controls="forbiddent-list" aria-selected="false">Mes rejets</button>
     </li>
   </ul>
 
@@ -38,11 +38,15 @@
             <%= link_to cheese_path(forbidden.cheese) do %>
             <%= image_tag forbidden.cheese.picture_url, class: "card-img-top", style: "border: 1px solid #1d4851; border-radius: 10px 10px 10px 10px;" %>
             <% end %>
-          <h5 class="card-title">
-          <%= forbidden.cheese.name %></h5>
+            <div class="title-card-body">
+          <h5 class="card-title"> <strong> <%= forbidden.cheese.name %> </strong></h5>
+          <div class="buttons-review-delete-card">
+                <%= link_to "Supprimer", cheese_destroy_forbiddens_path(forbidden.cheese, forbidden), data: {turbo_method: :delete, turbo_confirm: "Are your sure?"} %>
+                <%= link_to "Noter", new_cheese_review_path(forbidden.cheese) %>
+              </div>
           </div>
-          <% end %>
-          </ul>
+        <% end %>
+      </ul>
       </div>
   </div>
 

@@ -50,11 +50,11 @@ button#profile-tab {
 
 .buttons-review-delete-card {
   display: flex;
-  justify-content: space-between;
   padding-left: 15px;
   padding-bottom: 15px;
   & a {
     padding: 4px 8px;
+    margin-right: 10px;
     font-size: 14px;
     background-color: white;
     color: #11101E;
