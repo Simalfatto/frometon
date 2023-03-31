@@ -45,4 +45,20 @@ button#profile-tab {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  position: absolute;
+}
+
+.buttons-review-delete-card {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 15px;
+  padding-bottom: 15px;
+  & a {
+    padding: 4px 8px;
+    font-size: 14px;
+    background-color: white;
+    color: #11101E;
+    text-decoration: none;
+    border-radius: 8px;
+  }
 }

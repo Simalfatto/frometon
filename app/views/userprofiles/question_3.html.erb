@@ -6,7 +6,7 @@
 
         <div class="sliders">
           <p class="question-fromagator">Sur une échelle de 1 à 10, à quel point aimes-tu les fromages au <strong> lait de brebis </strong> ? </p>
-          <div class="form-fromagator"><%= form_with(url: show_path, method: :get) do |f| %> </div>
+          <%= form_with(url: show_path, method: :get) do |f| %>
           <%= f.range_field :score_search_brebis, in: 0..10, step:"1", value: @user.score_search_brebis, oninput: "output.value = score_search_brebis.value" %>
           <div class="output-and-submit">
             <div class="score">

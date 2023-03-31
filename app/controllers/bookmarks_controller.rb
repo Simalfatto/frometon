@@ -30,6 +30,12 @@ class BookmarksController < ApplicationController
     end
   end
 
+  def destroy
+    @bookmark = Bookmark.find(params[:id])
+    @bookmark.destroy
+    redirect_to bookmarks_path, notice: "Ce fromage a bien été supprimé de votre liste"
+  end
+
   private
 
   def bookmark_params

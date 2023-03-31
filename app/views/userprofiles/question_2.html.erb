@@ -6,7 +6,7 @@
 
         <div class="sliders">
           <p class="question-fromagator">Sur une échelle de 1 à 10, à quel point aimes-tu les fromages au <strong> lait de chèvre </strong> ? </p>
-          <div class="form-fromagator"><%= form_with(url: question_3_path, method: :get) do |f| %> </div>
+          <%= form_with(url: question_3_path, method: :get) do |f| %>
           <%= f.range_field :score_search_chevre, in: 0..10, step:"1", value: @user.score_search_chevre, oninput: "output.value = score_search_chevre.value" %>
           <div class="output-and-submit">
             <div class="score">
