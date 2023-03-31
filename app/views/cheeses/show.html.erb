@@ -33,8 +33,12 @@
 
     <%# Affichage tinder-button si click icone croix && statut : user %>
     <div class="tinder-button" data-slide-cards-target="tinderButtons">
-      <%= button_to "", cheese_bookmarks_path(@cheese), method: "post", class: "fa-solid fa-heart" %>
-      <%= button_to "", cheese_forbidden_path(@cheese), method: "post", class: "fa-solid fa-xmark" %>
+      <h4>Ajouter à ma liste d'envies</h4>
+      <div class="buttons-tinder" >
+        <%= button_to "", cheese_bookmarks_path(@cheese), method: "post", class: "fa-solid fa-heart" %>
+        <%= button_to "Retour", root_path, class: "skip" %>
+        <%= button_to "", cheese_forbidden_path(@cheese), method: "post", class: "fa-solid fa-xmark" %>
+      </div>
     </div>
 
     <%# Affichage sign-in-button si click icone croix && statut : %>
@@ -55,7 +59,7 @@
             <%= image_tag(r.picture_url) %>
             <div class="content-recipe" >
               <p><%= r.content %></p>
-              <%= link_to "Voir la recette", r.link_to_source, target: "_blank", class: "link-button-recipe" %>
+              <%= link_to "Voir sur Marmiton", r.link_to_source, target: "_blank", class: "link-button-recipe" %>
             </div>
           </div>
         <% end %>

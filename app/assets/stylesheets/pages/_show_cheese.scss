@@ -44,8 +44,9 @@
   & .logo-cheese-type{
     display: flex;
     flex-direction: column;
+    height: 150px;
     align-items: flex-start;
-    align-content: space-between;
+    justify-content: space-between;
   }
 
   & #icons-cheese-type{
@@ -147,10 +148,23 @@
 }
 
 .tinder-button.display{
-  display: flex;
+  margin-top: 16px;
+  text-align: center;
+  display: block;
   width: 100%;
-  justify-content: space-evenly;
-  align-items: center;
+
+  & .buttons-tinder{
+    margin-top: 16px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  & .skip {
+    padding: 4px 8px;
+    border: none;
+    border-radius: 8px;
+  }
 
   & a{
     text-decoration: none;
