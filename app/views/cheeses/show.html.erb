@@ -3,11 +3,17 @@
 
     <% if user_signed_in? %>
       <% if @bookmarks.any? { |bookmark| bookmark.cheese_id === @cheese.id} %>
+        <%= link_to bookmarks_path, style: "text-decoration: none;" do  %>
+          <h1><%= image_tag("SVG/arrow.svg", width: '25px', id: "arrow") %></h1>
+        <% end %>
           <%= render "shared/cheese_show_card" %>
         <div class="verif-favoris">
           <p>Ce fromage est déjà présent dans vos favoris</p>
         </div>
       <% elsif @forbiddens .any? { |forbidden| forbidden.cheese_id === @cheese.id}%>
+          <%= link_to bookmarks_path, style: "text-decoration: none;" do  %>
+            <h1><%= image_tag("SVG/arrow.svg", width: '25px', id: "arrow") %></h1>
+          <% end %>
           <%= render "shared/cheese_show_card" %>
         <div class="verif-favoris">
           <p>Ce fromage est déjà présent dans vos indésirables</p>
