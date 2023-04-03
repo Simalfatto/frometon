@@ -1,6 +1,6 @@
 class Cheese < ApplicationRecord
   has_many :bookmarks
-  has_many :reviews, as: :reatable
+  has_many :reviews
   has_many :recipes
   has_many :forbidden
 

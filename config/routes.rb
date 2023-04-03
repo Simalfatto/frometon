@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create]
     resources :bookmarks, only: [:create, :destroy]
     post "forbidden", to: "bookmarks#forbidden", as: "forbidden"
+    delete "forbiddens/:id", to: "bookmarks#destroy", as: "destroy_forbiddens"
   end
 
   resources :bookmarks, only: [:index]
