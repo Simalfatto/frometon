@@ -14,6 +14,10 @@
     transition: all 0.75s ease-out;
     border-radius: 15px 15px 0 0;
     overflow: scroll;
+
+    & h1{
+      font-weight: 800;
+    }
 }
 
 .wrapper-child{
@@ -32,13 +36,41 @@
   transform: translate(50%, -50%);
 }
 
-#recipes-list.show,
+#recipes-list.show{
+    opacity: 1;
+    width: 100vw;
+    height: 90%;
+    box-shadow: 0 0 15px rgba($color: #000000, $alpha: 1.0);
+}
+
 #wine-list.show,
 #story-list.show{
     opacity: 1;
     width: 100vw;
-    height: 90%;
+    height: 70%;
+    box-shadow: 0 0 15px rgba($color: #000000, $alpha: 1.0);
 }
+
+.wine-image{
+  background-image: url(https://images.unsplash.com/photo-1597337726353-26512fbe80c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8dmlnbmV8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60);
+  height: 150px;
+  width: 100%;
+  border-radius: 15px;
+  background-position: center;
+  background-size: cover;
+  margin-bottom: 16px;
+}
+
+.affinage-image{
+  background-image: url(https://images.unsplash.com/photo-1516643147509-4b3600367e0d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHByb2R1Y3RldXIlMjBmcm9tYWdlfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=500&q=60);
+  height: 150px;
+  width: 100%;
+  border-radius: 15px;
+  background-position: center;
+  background-size: cover;
+  margin-bottom: 16px;
+}
+
 
 // -------------------------------- RECIPES ITEM -------------------------------------
 .recipes-item{
