@@ -32,6 +32,20 @@
         <%= render "shared/season_loader" %>
         <p><%= @cheese.saison %></p>
       </div>
+      <div class="cheese-average-rating">
+        <% @cheese_review = cheese.reviews.rating %>
+              <div class="d-flex" id="stars-bookmark">
+                  <p class="star-rating-title"> <strong> Ma note : </strong> </p>
+                  <% if @cheese_review %>
+                    <% @cheese_review.rating.times do %>
+                      <i class="fas fa-star"></i>
+                    <% end %>
+                    <% (5 - @cheese_review.rating).times do %>
+                      <i class="far fa-star"></i>
+                    <% end %>
+                  <% end %>
+              </div>
+      </div>
     </div>
   </div>
 </div>

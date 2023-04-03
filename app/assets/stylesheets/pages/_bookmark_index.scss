@@ -43,15 +43,11 @@ button#profile-tab {
 
 .card-body-bookmark{
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
-  position: absolute;
 }
 
 .buttons-review-delete-card {
   display: flex;
-  padding-left: 15px;
-  padding-bottom: 15px;
   & a {
     padding: 4px 8px;
     margin-right: 10px;
@@ -60,5 +56,28 @@ button#profile-tab {
     color: #11101E;
     text-decoration: none;
     border-radius: 8px;
+  }
+}
+
+#stars-bookmark {
+  color: #F6B16A;
+}
+
+.star-rating-title {
+  color:#11101E;
+  font-size: 12px;
+  margin-left: 15px;
+  display: flex;
+  flex-direction: row;
+}
+
+.title-card-body {
+  margin-left:  12px;
+  & p {
+  margin: 0 10px 8px 0;
+  }
+  & h5 {
+    padding: 0;
+    margin-bottom: 8px;
   }
 }
