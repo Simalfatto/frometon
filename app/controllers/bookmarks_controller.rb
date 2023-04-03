@@ -14,7 +14,7 @@ class BookmarksController < ApplicationController
     @bookmark.user = current_user
     @bookmark.cheese = Cheese.find(params[:cheese_id])
     if @bookmark.save
-      redirect_to bookmarks_path, notice: "Bien ajouté aux favoris"
+      redirect_to bookmarks_path, notice: "Bien ajouté à votre liste d'envies, goûtez-le vite !"
     else
       render :new, status: :unprocessable_entity
     end
@@ -25,8 +25,7 @@ class BookmarksController < ApplicationController
     @forbidden.user = current_user
     @forbidden.cheese = Cheese.find(params[:cheese_id])
     if @forbidden.save
-      redirect_to bookmarks_path, notice: "Bien ajouté aux rejets"
-      # comment aller dans bookmarks forbidden ? Doit-on créer une nouvelle route?
+      redirect_to bookmarks_path, notice: "Ce fromage n'apparaîtra plus dans vos recherches."
     else
       render :new, status: :unprocessable_entity
     end

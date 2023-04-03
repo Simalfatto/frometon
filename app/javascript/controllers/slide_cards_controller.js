@@ -35,7 +35,7 @@ export default class extends Controller {
     this.cardTarget.classList.toggle('mini');
     this.cheeseButtonsTarget.classList.toggle('remove');
     this.tinderButtonsTarget.classList.toggle('display');
-    this.iconCrossTarget.classList.add('none');
+    this.iconCrossTarget.classList.toggle('none');
   }
 
   visitor(){
