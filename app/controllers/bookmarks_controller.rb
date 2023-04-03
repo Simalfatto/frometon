@@ -1,7 +1,8 @@
 class BookmarksController < ApplicationController
   def index
-    @bookmarks = Bookmark.where(user_id: current_user.id)
+    @bookmarks = Bookmark.includes(cheese: :reviews).where(user_id: current_user.id)
     @forbiddens = Forbidden.where(user_id: current_user.id)
+    # @review = Review.joins(cheese: :user).where(users: { id: current_user.id }, cheese: { cheese_id: bookmark.cheese.id })
   end
 
   def new
@@ -13,7 +14,7 @@ class BookmarksController < ApplicationController
     @bookmark.user = current_user
     @bookmark.cheese = Cheese.find(params[:cheese_id])
     if @bookmark.save
-      redirect_to root_path, notice: "Bien ajouté aux favoris"
+      redirect_to bookmarks_path, notice: "Bien ajouté aux favoris"
     else
       render :new, status: :unprocessable_entity
     end
@@ -24,18 +25,22 @@ class BookmarksController < ApplicationController
     @forbidden.user = current_user
     @forbidden.cheese = Cheese.find(params[:cheese_id])
     if @forbidden.save
-      redirect_to root_path, notice: "Bien ajouté aux rejets"
+      redirect_to bookmarks_path, notice: "Bien ajouté aux rejets"
+      # comment aller dans bookmarks forbidden ? Doit-on créer une nouvelle route?
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   def destroy
+    if params[:bookmark_category] == "bookmark"
     @bookmark = Bookmark.find(params[:id])
-    @bookmark.destroy
+    @bookmark.destroy if @bookmark
+    else
     @forbidden = Forbidden.find(params[:id])
     @forbidden.destroy
-    redirect_to bookmarks_path, notice: "Ce fromage a bien été supprimé de votre liste"
+    end
+    redirect_to bookmarks_path(bookmark_category: params[:bookmark_category]), notice: "Ce fromage a bien été supprimé de votre liste"
   end
 
   private

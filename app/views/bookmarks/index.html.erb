@@ -3,26 +3,37 @@
 
   <ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
-      <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#favoris-list" type="button" role="tab" aria-controls="favoris-list" aria-selected="true">Mes envies</button>
+      <button class="nav-link <%= params[:bookmark_category] == 'forbidden' ? '' : 'active'%>", id="home-tab" data-bs-toggle="tab" data-bs-target="#favoris-list" type="button" role="tab" aria-controls="favoris-list" aria-selected="true">Mes envies</button>
     </li>
 
     <li class="nav-item" role="presentation">
-      <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#forbiddent-list" type="button" role="tab" aria-controls="forbiddent-list" aria-selected="false">Mes rejets</button>
+      <button class="nav-link <%= params[:bookmark_category] == 'forbidden' ? 'active' : ''%>", id="profile-tab" data-bs-toggle="tab" data-bs-target="#forbiddent-list" type="button" role="tab" aria-controls="forbiddent-list" aria-selected="false">Mes rejets</button>
     </li>
   </ul>
 
   <div class="tab-content" id="myTabContent">
-      <div class="tab-pane fade show active" id="favoris-list" role="tabpanel" aria-labelledby="home-tab">
+      <div class="tab-pane fade show <%= params[:bookmark_category] == 'forbidden' ? '' : 'active'%>", id="favoris-list" role="tabpanel" aria-labelledby="home-tab">
         <ul>
         <% @bookmarks.each do |bookmark| %>
           <div class="card-body">
+            <% @review = bookmark.cheese.reviews.find{|review| review.user == current_user} %>
+              <div class="d-flex">
+                <% if @review %>
+                  <% @review.rating.times do %>
+                    <i class="fas fa-star"></i>
+                  <% end %>
+                  <% (5 - @review.rating).times do %>
+                    <i class="far fa-star"></i>
+                  <% end %>
+                <% end %>
+              </div>
             <%= link_to cheese_path(bookmark.cheese) do %>
               <%= image_tag bookmark.cheese.picture_url, class: "card-img-top", style: "border: 1px solid #1d4851; border-radius: 10px 10px 10px 10px;" %>
             <% end %>
             <div class="title-card-body">
               <h5 class="card-title"> <strong><%= bookmark.cheese.name %> </strong></h5>
               <div class="buttons-review-delete-card">
-                <%= link_to "Supprimer", cheese_bookmark_path(bookmark.cheese, bookmark), data: {turbo_method: :delete, turbo_confirm: "Are your sure?"} %>
+                <%= link_to "Supprimer", cheese_bookmark_path(bookmark.cheese, bookmark, bookmark_category: "bookmark"), data: {turbo_method: :delete, turbo_confirm: "Are your sure?"} %>
                 <%= link_to "Noter", new_cheese_review_path(bookmark.cheese) %>
               </div>
             </div>
@@ -31,19 +42,20 @@
         </ul>
       </div>
 
-      <div class="tab-pane fade" id="forbiddent-list" role="tabpanel" aria-labelledby="profile-tab">
+      <div class="tab-pane fade <%= params[:bookmark_category] == 'forbidden' ? 'active' : ''%>", id="forbiddent-list" role="tabpanel" aria-labelledby="profile-tab">
           <ul>
           <% @forbiddens.each do |forbidden|%>
             <div class="card-body">
-            <%= link_to cheese_path(forbidden.cheese) do %>
-            <%= image_tag forbidden.cheese.picture_url, class: "card-img-top", style: "border: 1px solid #1d4851; border-radius: 10px 10px 10px 10px;" %>
-            <% end %>
-            <div class="title-card-body">
-          <h5 class="card-title"> <strong> <%= forbidden.cheese.name %> </strong></h5>
-          <div class="buttons-review-delete-card">
-                <%= link_to "Supprimer", cheese_destroy_forbiddens_path(forbidden.cheese, forbidden), data: {turbo_method: :delete, turbo_confirm: "Are your sure?"} %>
-                <%= link_to "Noter", new_cheese_review_path(forbidden.cheese) %>
+              <%= link_to cheese_path(forbidden.cheese) do %>
+                <%= image_tag forbidden.cheese.picture_url, class: "card-img-top", style: "border: 1px solid #1d4851; border-radius: 10px 10px 10px 10px;" %>
+              <% end %>
+              <div class="title-card-body">
+                <h5 class="card-title"> <strong> <%= forbidden.cheese.name %> </strong></h5>
+                <div class="buttons-review-delete-card">
+                  <%= link_to "Supprimer", cheese_destroy_forbiddens_path(forbidden.cheese, forbidden, bookmark_category: "forbidden"), data: {turbo_method: :delete, turbo_confirm: "Are your sure?"} %>
+                  <%= link_to "Noter", new_cheese_review_path(forbidden.cheese) %>
               </div>
+            </div>
           </div>
         <% end %>
       </ul>
