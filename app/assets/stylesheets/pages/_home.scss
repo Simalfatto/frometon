@@ -6,13 +6,31 @@
 }
 
 #image-roulette {
+  width: 90%;
   display: block;
   margin: auto;
-}
+  position: absolute;
+  transform: translate(0,-40%);
+  top: 40%;
+  z-index: 0;
+  }
+
+  #roulette-svg {
+    transform-origin: center;
+    transition: transform 2.1s ease-in-out;
+    transform: rotate(0deg);
+  }
 
 .search-roulette {
   display: block;
   margin: auto;
+  background-color: #181823;
+  padding-top: 15px;
+  z-index: 1;
+  position: absolute;
+  top: 44%;
+  height: 30%;
+  width: 90%;
 }
 
 .search-roulette button {

@@ -6,11 +6,19 @@ class PagesController < ApplicationController
   end
 
   def result
-    if !params["search_all"].present?
+    if !params.key?("search_all")
 
       cheeses = Cheese.all
 
       if current_user
+
+        if current_user.forbiddens
+          current_user.forbiddens.each do |forbidden|
+            reject = Cheese.find_by(id: forbidden.cheese_id)
+            cheeses = cheeses.reject { |cheese| cheese == reject }
+          end
+        end
+
         selection = []
         params["AOP"].present? ? cheeses = cheeses.select(&:filter_AOP) : cheeses
         params["pour_femme_enceinte"].present? ? cheeses = cheeses.select(&:filter_pregnant) : cheeses
@@ -53,36 +61,43 @@ class PagesController < ApplicationController
         params["pour_femme_enceinte"].present? ? cheeses = cheeses.select(&:filter_pregnant) : cheeses
         @cheese = cheeses.sample
       end
-    else
-      if current_user
-        selection = []
+    elsif current_user
+      selection = []
 
-        vaches = Cheese.where(lait: "vache")
-        current_user.score_search_vache.times do
-          vache = vaches.sample
-          selection.push(vache)
-        end
-
-        brebis = Cheese.where(lait: "brebis")
-        current_user.score_search_brebis.times do
-          brebi = brebis.sample
-          selection.push(brebi)
-        end
-
-        chevres = Cheese.where(lait: "chèvre")
-        current_user.score_search_chevre.times do
-          chevre = chevres.sample
-          selection.push(chevre)
-        end
-
-        if selection == []
-          @cheese = []
-        else
-          @cheese = selection.sample
-        end
-      else
-        @cheese = Cheese.order("RANDOM()").limit(1).first
+      vaches = Cheese.where(lait: "vache")
+      current_user.score_search_vache.times do
+        vache = vaches.sample
+        selection.push(vache)
       end
+
+      brebis = Cheese.where(lait: "brebis")
+      current_user.score_search_brebis.times do
+        brebi = brebis.sample
+        selection.push(brebi)
+      end
+
+      chevres = Cheese.where(lait: "chèvre")
+      current_user.score_search_chevre.times do
+        chevre = chevres.sample
+        selection.push(chevre)
+      end
+
+      if current_user.forbiddens
+        current_user.forbiddens.each do |forbidden|
+          if Cheese.find_by(id: forbidden.cheese_id)
+            reject = Cheese.find_by(id: forbidden.cheese_id)
+            selection = selection.reject { |cheese| cheese == reject }
+          end
+        end
+      end
+
+      if selection == []
+        @cheese = []
+      else
+        @cheese = selection.sample
+      end
+    else
+      @cheese = Cheese.order("RANDOM()").limit(1).first
     end
   end
 
