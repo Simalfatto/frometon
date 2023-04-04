@@ -16,24 +16,25 @@
         <ul>
         <% @bookmarks.each do |bookmark| %>
           <div class="card-body">
-            <% @review = bookmark.cheese.reviews.find{|review| review.user == current_user} %>
-              <div class="d-flex">
-                <% if @review %>
-                  <% @review.rating.times do %>
-                    <i class="fas fa-star"></i>
-                  <% end %>
-                  <% (5 - @review.rating).times do %>
-                    <i class="far fa-star"></i>
-                  <% end %>
-                <% end %>
-              </div>
             <%= link_to cheese_path(bookmark.cheese) do %>
               <%= image_tag bookmark.cheese.picture_url, class: "card-img-top", style: "border: 1px solid #1d4851; border-radius: 10px 10px 10px 10px;" %>
             <% end %>
             <div class="title-card-body">
               <h5 class="card-title"> <strong><%= bookmark.cheese.name %> </strong></h5>
+              <% @review = bookmark.cheese.reviews.find{|review| review.user == current_user} %>
+              <div class="d-flex" id="stars-bookmark">
+                  <p class="star-rating-title"> <strong> Ma note : </strong> </p>
+                  <% if @review %>
+                    <% @review.rating.times do %>
+                      <i class="fas fa-star"></i>
+                    <% end %>
+                    <% (5 - @review.rating).times do %>
+                      <i class="far fa-star"></i>
+                    <% end %>
+                  <% end %>
+              </div>
               <div class="buttons-review-delete-card">
-                <%= link_to "Supprimer", cheese_bookmark_path(bookmark.cheese, bookmark, bookmark_category: "bookmark"), data: {turbo_method: :delete, turbo_confirm: "Are your sure?"} %>
+                <%= link_to "Retirer", cheese_bookmark_path(bookmark.cheese, bookmark, bookmark_category: "bookmark"), data: {turbo_method: :delete, turbo_confirm: "Are your sure?"} %>
                 <%= link_to "Noter", new_cheese_review_path(bookmark.cheese) %>
               </div>
             </div>
