@@ -19,4 +19,10 @@ class Cheese < ApplicationRecord
   validates :filter_brebis, inclusion: { in: [true, false] }
   validates :filter_AOP, inclusion: { in: [true, false] }
   validates :wine, presence: true
+
+  def average_rating_cheese
+    sum_rating = self.reviews.pluck(:rating).sum.to_f
+    count_rating = self.reviews.pluck(:rating).count
+    (sum_rating / count_rating).to_i
+  end
 end
