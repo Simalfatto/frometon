@@ -20,6 +20,21 @@
     }
 }
 
+#recipes-list.show{
+    opacity: 1;
+    width: 100vw;
+    height: 90%;
+    box-shadow: 0 0 15px rgba($color: #000000, $alpha: 1.0);
+}
+
+#wine-list.show,
+#story-list.show{
+    opacity: 1;
+    width: 100vw;
+    height: 70%;
+    box-shadow: 0 0 15px rgba($color: #000000, $alpha: 1.0);
+}
+
 .wrapper-child{
   position: relative;
   height: 100%;
@@ -34,21 +49,6 @@
   right: 0.25%;
   top: 0.25%;
   transform: translate(50%, -50%);
-}
-
-#recipes-list.show{
-    opacity: 1;
-    width: 100vw;
-    height: 90%;
-    box-shadow: 0 0 15px rgba($color: #000000, $alpha: 1.0);
-}
-
-#wine-list.show,
-#story-list.show{
-    opacity: 1;
-    width: 100vw;
-    height: 70%;
-    box-shadow: 0 0 15px rgba($color: #000000, $alpha: 1.0);
 }
 
 .wine-image{
