@@ -1,16 +1,19 @@
 <%= render "shared/navbar-top-default" %>
 <main class="content-middle" id="content-middle" data-action="click->slide-cards#slideOff" data-controller="slide-cards">
-
     <% if user_signed_in? %>
       <% if @bookmarks.any? { |bookmark| bookmark.cheese_id === @cheese.id} %>
+
           <%= link_to bookmarks_path, style: "text-decoration: none;" do  %>
-            <h1><%= image_tag("SVG/arrow.svg", width: '25px', id: "arrow") %></h1>
+            <%= image_tag("SVG/arrow.svg", width: '25px', id: "arrow") %>
           <% end %>
           <%= render "shared/cheese_show_card" %>
         <div class="verif-favoris">
           <p>Ce fromage est déjà présent dans vos envies</p>
         </div>
       <% elsif @forbiddens.any? { |forbidden| forbidden.cheese_id === @cheese.id}%>
+          <%= link_to bookmarks_path, style: "text-decoration: none;" do  %>
+            <%= image_tag("SVG/arrow.svg", width: '25px', id: "arrow") %>
+          <% end %>
           <%= render "shared/cheese_show_card" %>
         <div class="verif-favoris">
           <p>Ce fromage est déjà présent dans vos rejets</p>
@@ -56,7 +59,7 @@
     <div id="recipes-list" data-slide-cards-target="recipes" data-action="click->slide-cards#slideOff">
       <div class="wrapper-child">
         <%= image_tag "SVG/cross.svg", id: "icon-cross-recipe" %>
-        <h1>Recettes du fromage</h1>
+        <h1>Recettes</h1>
         <% @recipes.each do |r| %>
           <div class="recipes-item">
             <%= image_tag(r.picture_url) %>
@@ -73,11 +76,11 @@
         <%= image_tag "SVG/cross.svg", id: "icon-cross-wine" %>
         <% if @cheese.wine === "non renseigné" %>
           <div class="wine-image"></div>
-          <h1>Les vins conseillés</h1>
+          <h1>Vins conseillés</h1>
           <p>Nous ne disposons pas d'informations concernant les meilleurs vins pour ce fromage</p>
         <% else %>
           <div class="wine-image"></div>
-          <h1>Les vins conseillés</h1>
+          <h1>Vins conseillés</h1>
           <p><%= @cheese.wine %></p>
         <% end %>
 
@@ -87,7 +90,7 @@
       <div class="wrapper-child">
         <%= image_tag "SVG/cross.svg", id: "icon-cross-story" %>
         <div class="affinage-image" ></div>
-        <h1>Histoire du fromage</h1>
+        <h1>Histoire</h1>
         <p><%= @cheese.description_1 %></p>
         <h1>Temps d'affinage</h1>
         <p><%= @cheese.affinage %></p>
