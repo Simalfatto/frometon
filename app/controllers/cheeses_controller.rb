@@ -11,9 +11,12 @@ class CheesesController < ApplicationController
   end
 
   def show
-    @forbiddens = Forbidden.where(user_id: current_user.id)
-    @bookmarks = Bookmark.where(user_id: current_user.id)
-    @recipes = Recipe.where(cheese_id: @cheese.id)
+    if user_signed_in?
+      @forbiddens = Forbidden.where(user_id: current_user.id)
+      @bookmarks = Bookmark.where(user_id: current_user.id)
+    else
+      @recipes = Recipe.where(cheese_id: @cheese.id)
+    end
   end
 
   def new

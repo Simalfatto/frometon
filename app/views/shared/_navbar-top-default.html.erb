@@ -1,4 +1,3 @@
-
 <nav class="navbar-top" data-controller="navbar">
     <%= form_with url: cheeses_path, method: :get, id: "d-flexs" do %>
       <%= text_field_tag :query,params[:query],class: "form-control-navbar",placeholder: "Trouver votre fromage", data: { navbar_target: "value" }%>
@@ -19,6 +18,4 @@
     <p class="lien">Déconnexion</p>
     <% end %>
     </div>
-    <%# connecter l'icone à la méthode search %>
-    <%# réaliser %>
 </nav>

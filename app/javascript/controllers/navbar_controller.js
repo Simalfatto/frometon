@@ -25,9 +25,14 @@ export default class extends Controller {
     }
   }
   displayLink() {
+    this.linkTarget.classList.add("show");
+    document.addEventListener('click', this.closeMenu.bind(this));
+  }
 
-    this.linkTarget.classList.toggle("show")
-    // recuperer div allLink(target)
-    // enlever la class d'none
+  closeMenu(event) {
+    if (!this.element.contains(event.target)) {
+      this.linkTarget.classList.remove('show');
+      document.removeEventListener('click', this.closeMenu);
+    }
   }
 }
