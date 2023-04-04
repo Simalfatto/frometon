@@ -26,7 +26,7 @@ export default class extends Controller {
   }
   displayLink() {
 
-    this.linkTarget.classList.toggle("d-none")
+    this.linkTarget.classList.toggle("show")
     // recuperer div allLink(target)
     // enlever la class d'none
   }

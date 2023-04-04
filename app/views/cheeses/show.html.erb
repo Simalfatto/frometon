@@ -1,8 +1,8 @@
 <%= render "shared/navbar-top-default" %>
 <main class="content-middle" id="content-middle" data-action="click->slide-cards#slideOff" data-controller="slide-cards">
-
     <% if user_signed_in? %>
       <% if @bookmarks.any? { |bookmark| bookmark.cheese_id === @cheese.id} %>
+
           <%= link_to bookmarks_path, style: "text-decoration: none;" do  %>
             <%= image_tag("SVG/arrow.svg", width: '25px', id: "arrow") %>
           <% end %>
