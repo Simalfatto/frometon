@@ -24,6 +24,17 @@ class CheesesController < ApplicationController
     @cheese = Cheese.new
   end
 
+  def region
+    @cheeses = Cheese.all
+    # The `geocoded` scope filters only flats with coordinates
+    @markers = @cheeses.geocoded.map do |cheese|
+      {
+        lat: cheese.latitude,
+        lng: cheese.longitude
+      }
+    end
+  end
+
   private
 
   def set_cheese

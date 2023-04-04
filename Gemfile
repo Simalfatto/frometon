@@ -29,6 +29,8 @@ gem "jbuilder"
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
+# geocoder
+gem "geocoder"
 
 # Create sliders
 gem 'jquery-ui-rails'
