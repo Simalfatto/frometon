@@ -9,8 +9,8 @@ class ReviewsController < ApplicationController
     @review.user = current_user
     @cheese = Cheese.find(params[:cheese_id])
     @review.cheese = @cheese
-    if @review.save
-      redirect_to cheese_path, notice: "Merci pour votre commentaire"
+    if @review.save!
+      redirect_to bookmarks_path, notice: "Merci pour votre commentaire"
     else
       render :new, status: :unprocessable_entity
     end

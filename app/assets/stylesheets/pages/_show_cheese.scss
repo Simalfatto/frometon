@@ -11,11 +11,14 @@
   right: 0.25%;
   top: 0.25%;
   transform: translate(50%, -50%);
+  opacity: 1;
+  transition-delay: 0.75s;
 }
 
 #icons-cross-visitor.none,
 #icons-cross-user.none{
-  display: none;
+  transition-delay: 0.1s;
+  opacity: 0;
 }
 
 // ----------------------------------- CHEESE CARD ------------------------------------
@@ -164,6 +167,8 @@
     padding: 4px 8px;
     border: none;
     border-radius: 8px;
+    background-color: #F4ECEA;
+    color: #11101E;
   }
 
   & a{

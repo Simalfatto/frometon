@@ -5,8 +5,8 @@
     <div class="basic-information">
         <p>Mon e-mail : <%= @user.email %></p>
         <p>Mon pseudo : <%= @user.pseudo %></p>
-        <p>Fromages dans ma liste d'envies : <strong><%= @bookmarks.length %></strong> </p>
-        <p>Fromages laissés de côté : <strong><%= @forbiddens.length %></strong> </p>
+        <p>Fromages dont vous avez envie : <strong><%= @bookmarks.length %></strong> </p>
+        <p>Fromages rejettés : <strong><%= @forbiddens.length %></strong> </p>
         <div class="reviews-user">
           <% @reviews.each do |r| %>
             <p><%= r.content %> <%= r.rating %></p>
