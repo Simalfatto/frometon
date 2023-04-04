@@ -1,15 +1,17 @@
 <%= render "shared/navbar-top-default" %>
-<main class="content-middle homepage" data-controller="roulette" data-turbo="false">
+<main class="content-middle homepage" data-controller="roulette">
   <div>
-    <div>
-      <%= image_tag("roulette.png", width: '70%', id: "image-roulette") %>
+    <div id="image-roulette">
+      <div id="roulette-svg" data-roulette-target="svg">
+        <%= image_tag("SVG/roulette.svg") %>
+      </div>
     </div>
     <div class="search-roulette">
       <div data-roulette-target="parameters" class="d-none" id="form_roulette">
         <div data-action="click->roulette#close" id= "icons-cross-home">
           <%= image_tag "SVG/cross.svg" %>
         </div>
-        <%= form_tag(result_path, method: :get, id: "form-home") do %>
+        <%= form_tag(result_path, method: :get, id: "form-home", data: { roulette_target: "form" }) do %>
           <div>
             <p class="text-center">Lait de :</p>
             <div class="d-flex justify-content-between">
@@ -31,10 +33,10 @@
               <%= label_tag :"pour femme enceinte" %>
             </div>
           </div>
-            <%= submit_tag :"Chercher un fromage", id: "second-search" %>
+            <%= button_tag :"Chercher un fromage", type: "button", id: "second-search", data: { action: "click->roulette#rotate" } %>
         <% end %>
       </div>
-      <%= button_to 'Chercher un fromage', result_path, id: "fromage-search", class: "justify-content-center",  method: "get", params: {search_all: true}, data: { roulette_target: 'button'} %>
+      <%= button_to 'Chercher un fromage', result_path, id: "fromage-search", class: "justify-content-center",  method: "get", params: {search_all: true}, data: { roulette_target: 'button', action: "click->roulette#rotateBis" } %>
       <button id= "personnaliser" data-action="click->roulette#display" data-roulette-target="btn2">Personnaliser ma recherche</button>
     </div>
     <div class="question">

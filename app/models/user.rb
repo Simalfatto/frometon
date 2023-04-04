@@ -4,6 +4,7 @@ class User < ApplicationRecord
   validates :pseudo, presence: true
 
   has_many :reviews
+  has_many :forbiddens
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end
