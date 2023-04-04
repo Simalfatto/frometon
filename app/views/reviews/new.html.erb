@@ -1,13 +1,17 @@
 <%= render "shared/navbar-top-default" %>
 <main class="content-middle">
+  <%= link_to bookmarks_path, style: "text-decoration: none;" do  %>
+    <%= image_tag("SVG/arrow.svg", width: '25px', id: "arrow") %>
+  <% end %>
+  <div class="rating-form">
   <h1> Partagez votre avis </h1>
   <%= simple_form_for([@cheese, @review], html: { data: { controller: "submit" }}) do |f| %>
     <%= f.input :content, label: "Commentaire" %>
     <%= f.input :rating, label: "Note", collection: Review::AUTHORIZED_RATINGS, input_html: {data: {controller: "star-rating", action: "click->form-submit#submit"}} %>
     <div class="btn-bottom">
-      <%= f.button :submit, class:"" %>
+      <%= f.button :submit, class:"button-rating", value: "Donner mon avis" %>
       <% end %>
-      <%= link_to "Revenir votre liste",  bookmarks_path(@cheese), class: "button-secondary" %>
     </div>
+  </div>
 </main>
 <%= render "shared/navbar-bottom-default" %>
