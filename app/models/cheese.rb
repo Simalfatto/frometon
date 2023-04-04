@@ -4,6 +4,9 @@ class Cheese < ApplicationRecord
   has_many :recipes
   has_many :forbidden
 
+  geocoded_by :region
+  after_validation :geocode, if: :will_save_change_to_address?
+
   validates :name, presence: true
   validates :affinage, presence: true
   validates :lait, presence: true
