@@ -37,6 +37,11 @@
       <%= button_to 'Chercher un fromage', result_path, id: "fromage-search", class: "justify-content-center",  method: "get", params: {search_all: true}, data: { roulette_target: 'button'} %>
       <button id= "personnaliser" data-action="click->roulette#display" data-roulette-target="btn2">Personnaliser ma recherche</button>
     </div>
+    <div class="question">
+      <%= link_to cheeses_path, style: "text-decoration: none;" do %>
+        <%= image_tag "SVG/question.svg", width: '45px', id:"icon-?" %>
+        <% end %>
+    </div>
   </div>
 
 </main>
