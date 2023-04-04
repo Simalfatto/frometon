@@ -14,6 +14,7 @@ class CheesesController < ApplicationController
     if user_signed_in?
       @forbiddens = Forbidden.where(user_id: current_user.id)
       @bookmarks = Bookmark.where(user_id: current_user.id)
+      @recipes = Recipe.where(cheese_id: @cheese.id)
     else
       @recipes = Recipe.where(cheese_id: @cheese.id)
     end
