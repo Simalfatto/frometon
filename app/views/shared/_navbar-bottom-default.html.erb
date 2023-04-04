@@ -1,9 +1,11 @@
 <nav class="navbar-bottom">
   <%= link_to root_path, style: "text-decoration: none;" do  %>
-    <%= image_tag "SVG/cheese-home.svg", width: '25px', id: "icon-cheese-home" %>
+    <%= image_tag "SVG/home.svg", width: '25px', id: "icon-cheese-home" %>
   <% end %>
-    <%= link_to "", bookmarks_path, class: "fa-solid fa-bookmark" %>
-    <%= link_to show_path, style: "text-decoration: none;" do  %>
+  <%= link_to bookmarks_path, style: "text-decoration: none;" do  %>
+    <%= image_tag "SVG/favourites.svg", width: '20px', id: "icon-cheese-home" %>
+  <% end %>
+  <%= link_to show_path, style: "text-decoration: none;" do  %>
     <%= image_tag "SVG/user.svg", width: '25px', id: "icon-user-profile" %>
   <% end %>
 </nav>
