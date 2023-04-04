@@ -38,7 +38,9 @@
       <div class="cheese-average-rating">
               <div class="d-flex" id="stars-bookmark-show">
                 <% if @cheese.reviews.empty? %>
+                  <div class="avis-text-show">
                   <%= "Il n'y a pas encore d'avis pour ce fromage" %>
+                  </div>
                 <% else %>
                   <% @cheese.average_rating_cheese.times do %>
                     <i class="fas fa-star"></i>
