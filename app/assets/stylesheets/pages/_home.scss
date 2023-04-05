@@ -126,7 +126,55 @@
 }
 
 .question {
-  position: absolute;
-  bottom: 14px;
+  position: fixed;
+  bottom: 70px;
   right: 14px;
+
+}
+
+.infoslide {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  height: 0;
+  right: 0;
+  overflow: hidden;
+  transition: all 0.20s ease-out
+}
+.infoslide.show {
+  height: 55%;
+  width: 100%;
+  opacity: 1;
+  transition: all 0.20s ease-out;
+  z-index: 4;
+  background-color: #11101E;
+}
+.infoslide p {
+  color: white;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  border-radius: 15px;
+  margin-top: 8px;
+}
+.infoslide h2 {
+  padding: 20px 0 10px 20px;
+  margin-top: 8px;
+}
+#icon-info {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  right: 0.25%;
+  top: 0.25%;
+  transform: translate(50%, -50%);
+}
+.help {
+  position: relative;
+}
+#icon-info{
+  position: absolute;
+  top: 5%;
+  right: 5%;
 }

@@ -14,11 +14,11 @@
   </div>
   <div id="bottom-card">
     <% if @cheese.filter_vache %>
-      <h2><strong> Fromage de vache </strong></h2>
+      <h3 class="cheese-type"><strong> Fromage de vache </strong></h3>
     <% elsif @cheese.filter_brebis %>
-      <h2><strong> Fromage de brebis </strong></h2>
+      <h3 class="cheese-type"><strong> Fromage de brebis </strong></h3>
     <% else %>
-      <h2><strong> Fromage de chèvre </strong></h2>
+      <h3 class="cheese-type"><strong> Fromage de chèvre </strong></h3>
     <% end %>
     <div class="parent-cheese-informations">
       <div class="cheese-informations">
@@ -27,7 +27,6 @@
       </div>
     </div>
     <div class="parent-cheese-informations">
-
       <h4> <strong> Dégustation optimale </strong></h4>
       <div class="cheese-informations">
         <%= render "shared/season_loader" %>
@@ -48,6 +47,7 @@
                   <% (5 - @cheese.average_rating_cheese).times do %>
                   <i class="far fa-star"></i>
                   <% end %>
+                  <p class="avis-show-cheese"> <%= @cheese.reviews.count %> avis </p>
                 <% end %>
                 <%# <%= link_to "Lire les avis", bookmarks_path %>
               </div>
