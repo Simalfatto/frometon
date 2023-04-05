@@ -1,4 +1,4 @@
-<div id="cheese-card-show" data-slide-cards-target="card" data-action="click->slide-cards#user">
+<div id="cheese-card-show">
   <div id="top-card">
     <div class="logo-cheese-type">
       <h1><%= @cheese.name %></h1>
@@ -27,6 +27,7 @@
       </div>
     </div>
     <div class="parent-cheese-informations">
+
       <h4> <strong> Dégustation optimale </strong></h4>
       <div class="cheese-informations">
         <%= render "shared/season_loader" %>
