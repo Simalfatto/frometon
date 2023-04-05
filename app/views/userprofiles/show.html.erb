@@ -18,6 +18,7 @@
       <li class="text-center"><p>Fromages au lait de brebis: <strong> <%= @user.score_search_brebis %></strong>/10</p></li>
     </ul>
     <%= link_to "Modifier mes préférences", question_1_path, id: "modifier-choix" %>
+    <%= link_to "Commencer l'aventure Frometon !", root_path, id: "modifier-choix", class: "mt-3" %>
   </div>
 </main>
 <%= render "shared/navbar-bottom-default" %>

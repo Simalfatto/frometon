@@ -1,0 +1,57 @@
+<div id="cheese-card-show">
+  <div id="top-card">
+    <div class="logo-cheese-type">
+      <h1><%= @cheese.name %></h1>
+      <% if @cheese.filter_vache %>
+      <%= image_tag "vache.png", id: "icons-cheese-type" %>
+      <% elsif @cheese.filter_brebis %>
+        <%= image_tag "brebis.png", id: "icons-cheese-type" %>
+      <% else %>
+        <%= image_tag "chevre.png", id: "icons-cheese-type" %>
+      <% end %>
+    </div>
+    <%= image_tag @cheese.picture_url, class: "image-cheese-show" %>
+  </div>
+  <div id="bottom-card">
+    <% if @cheese.filter_vache %>
+      <h2><strong> Fromage de vache </strong></h2>
+    <% elsif @cheese.filter_brebis %>
+      <h2><strong> Fromage de brebis </strong></h2>
+    <% else %>
+      <h2><strong> Fromage de chèvre </strong></h2>
+    <% end %>
+    <div class="parent-cheese-informations">
+      <div class="cheese-informations">
+        <%= image_tag "SVG/fromage_1.svg", id: "icons-cheese" %>
+        <p><%= @cheese.pate %></p>
+      </div>
+    </div>
+    <div class="parent-cheese-informations">
+
+      <h4> <strong> Dégustation optimale </strong></h4>
+      <div class="cheese-informations">
+        <%= render "shared/season_loader" %>
+        <p><%= @cheese.saison %></p>
+      </div>
+
+      <h4> <strong> Note moyenne : </strong> </h4>
+      <div class="cheese-average-rating">
+              <div class="d-flex" id="stars-bookmark-show">
+                <% if @cheese.reviews.empty? %>
+                  <div class="avis-text-show">
+                  <%= "Il n'y a pas encore d'avis pour ce fromage" %>
+                  </div>
+                <% else %>
+                  <% @cheese.average_rating_cheese.times do %>
+                    <i class="fas fa-star"></i>
+                  <% end %>
+                  <% (5 - @cheese.average_rating_cheese).times do %>
+                  <i class="far fa-star"></i>
+                  <% end %>
+                <% end %>
+                <%# <%= link_to "Lire les avis", bookmarks_path %>
+              </div>
+      </div>
+    </div>
+  </div>
+</div>

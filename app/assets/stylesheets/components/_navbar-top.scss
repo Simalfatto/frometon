@@ -11,7 +11,7 @@
 
 #d-flexs{
   position: relative;
-  transition: all 1s;
+  transition: width 1s;
   width: 25px;
   height: 25px;
   box-sizing: border-box;
@@ -19,6 +19,24 @@
   padding: 0px;
 }
 
+#d-flexs:hover{
+  width: 300px;
+  cursor: pointer;
+  transition: width 1s;
+
+  & .fa{
+    padding: 10px;
+  }
+
+  & .form-control-navbar {
+    background-color: white;
+  }
+}
+
+#button-test {
+  background-color: transparent;
+  border-color: transparent;
+}
 
 .form-control-navbar{
   position: absolute;
@@ -30,10 +48,11 @@
   line-height: 30px;
   outline: 0;
   border: 0;
-  display: none;
+  display: block;
   font-size: 1em;
   border-radius: 20px;
   padding: 0 20px;
+  background-color: #11101E;
 }
 
 .fa{
@@ -43,33 +62,18 @@
   // height: 42.5px;
   position: absolute;
   top: 50%;
-  transform: translate(0, -50%);
+  transform: translate(32%, -50%);
   right: 0;
   border-radius: 50%;
   color: #F6B16A;
   text-align: center;
   // font-size: 1.2em;
-  transition: all 1s;
   background-color: #11101E;
   margin-right: -2px;
 }
 
-#d-flexs:hover{
-  width: 300px;
-  cursor: pointer;
-
-  & .fa{
-    padding: 10px;
-  }
-}
-
 #d-flexs:hover input{
-  display: block;
-}
-
-.d-flex:hover .fa{
-  background: #07051a;
-  color: #F6B16A;
+  transition: width 1s;
 }
 
 #navbar-btn {
