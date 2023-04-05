@@ -29,7 +29,7 @@
   z-index: 1;
   position: absolute;
   top: 44%;
-  height: 30%;
+  height: 40%;
   width: 90%;
 }
 
@@ -129,6 +129,7 @@
   position: fixed;
   bottom: 70px;
   right: 14px;
+  z-index: 3;
 
 }
 
@@ -140,13 +141,14 @@
   height: 0;
   right: 0;
   overflow: hidden;
-  transition: all 0.20s ease-out
+  z-index: 4;
+  transition: all 0.50s ease-out;
 }
 .infoslide.show {
   height: 55%;
   width: 100%;
   opacity: 1;
-  transition: all 0.20s ease-out;
+  transition: all 0.50s ease-out;
   z-index: 4;
   background-color: #11101E;
 }
