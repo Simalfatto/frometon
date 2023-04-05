@@ -3,7 +3,12 @@ class CheesesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :show, :index ]
 
   def index
-    if params[:query].present?
+    if params[:query]
+      @regions = Cheese.where("region ILIKE ?", "%#{params[:query]}%")
+      respond_to do |format|
+        format.html
+      end
+    elsif params[:query].present?
       @cheeses = Cheese.where("name ILIKE ?", "%#{params[:query]}%")
     else
       @cheeses = Cheese.all
