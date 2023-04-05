@@ -39,7 +39,8 @@ class BookmarksController < ApplicationController
     @forbidden = Forbidden.find(params[:id])
     @forbidden.destroy
     end
-    redirect_to bookmarks_path(bookmark_category: params[:bookmark_category]), notice: "Ce fromage a bien été supprimé de votre liste"
+    # redirect_to bookmarks_path
+    redirect_to bookmarks_path(bookmark_category: params[:bookmark_category]), status: :see_other, notice: "Ce fromage a bien été supprimé de votre liste"
   end
 
   private
