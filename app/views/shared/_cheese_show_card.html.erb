@@ -14,11 +14,11 @@
   </div>
   <div id="bottom-card">
     <% if @cheese.filter_vache %>
-      <h2><strong> Fromage de vache </strong></h2>
+      <h3 class="cheese-type"><strong> Fromage de vache </strong></h3>
     <% elsif @cheese.filter_brebis %>
-      <h2><strong> Fromage de brebis </strong></h2>
+      <h3 class="cheese-type"><strong> Fromage de brebis </strong></h3>
     <% else %>
-      <h2><strong> Fromage de chèvre </strong></h2>
+      <h3 class="cheese-type"><strong> Fromage de chèvre </strong></h3>
     <% end %>
     <div class="parent-cheese-informations">
       <div class="cheese-informations">

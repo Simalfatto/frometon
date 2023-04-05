@@ -27,7 +27,7 @@
                 input_html: { autocomplete: "Confirmation du mot de passe" } %>
   </div>
   <div class="form-actions-signup">
-    <%= f.button :submit, "Je crée mon compte" %>
+    <%= f.button :submit, "Je crée mon compte", onclick: "window.location.href = question_1_path" %>
   </div>
 <% end %>
 <%= render "devise/shared/links" %>
