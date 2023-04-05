@@ -39,12 +39,39 @@ import mapboxgl from 'mapbox-gl' // Don't forget this!
 
       map.on('click', 'regions', (e) => {
         const regionName = e.features[0].properties.nom;
-        const url = `cheeses?query=${encodeURIComponent(regionName)}`
+        const url = `cheeses?region=${encodeURIComponent(regionName)}`
+
+        const div = document.getElementById('fromage-list-region')
+        const close = document.getElementById('icon-cross-region')
+        const cheeses = document.getElementById('wrapper-child-region')
+        div.classList.add('show')
+
+        close.addEventListener("click", () => {
+          div.classList.remove('show')
+          cheeses.innerHTML = ""
+        })
 
         fetch(url)
-        .then(response => response.text())
-        .then(data => {
-          console.log(data)
+        .then(response => response.json())
+        .then(fromages => {
+          console.log(fromages)
+          fromages.forEach(element => {
+            const divCheese = document.createElement('div');
+            divCheese.classList.add("card-body");
+            console.log(divCheese)
+            const img = document.createElement("img");
+            divCheese.appendChild(img)
+            img.classList.add("card-img-top");
+            img.src = element.picture_url;
+            console.log(divCheese)
+            const titre = document.createElement("h5");
+            divCheese.appendChild(titre)
+            titre.innerText = element.name;
+            console.log(divCheese)
+            console.log(typeof divCheese)
+
+            cheeses.appendChild(divCheese);
+          });
         })
       });
     }

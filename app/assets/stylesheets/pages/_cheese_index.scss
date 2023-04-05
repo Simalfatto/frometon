@@ -2,6 +2,9 @@
   width: 90px;
   height: 90px;
   margin-right: 16px;
+  border: 1px solid #F6B16A;
+  border-radius: 10px 10px 10px 10px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
 }
 
 .card-body {
@@ -20,10 +23,4 @@ h5 {
 }
 .content-middle h1 {
   color: whitesmoke;
-}
-.card-img-top
-{
-  border: 1px solid #F6B16A;
-  border-radius: 10px 10px 10px 10px;
-  box-shadow: 5px 5px 5px black;
 }

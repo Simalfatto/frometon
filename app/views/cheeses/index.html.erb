@@ -8,8 +8,7 @@
       <%= link_to cheese_path(cheese), class: "card-body-link", style: "text-decoration: none;" do %>
         <div class="card-body">
           <%= image_tag cheese.picture_url, class: "card-img-top"%>
-          <h5 class="card-title">
-            <%= cheese.name %></h5>
+          <h5 class="card-title"><%= cheese.name %></h5>
         </div>
       <% end %>
     <% end %>
