@@ -10,29 +10,42 @@ import mapboxgl from 'mapbox-gl' // Don't forget this!
     connect() {
       mapboxgl.accessToken = this.apiKeyValue
 
-      this.map = new mapboxgl.Map({
-        container: "map",
-        style: "mapbox://styles/ju-dev/clg2d3pwe002d01mwcmss3tv7",
+      const map = new mapboxgl.Map({
+        container: this.element,
+        style: "mapbox://styles/ju-dev/clg2b42i801gs01pexus8zesb",
         center: [2.00714, 47.101435],
         zoom: 4.25,
       })
 
-      map.on('load', () => {
+      map.on('style.load', () => {
+
         map.addSource('regions', {
           "type": 'geojson',
           'data': 'https://france-geojson.gregoiredavid.fr/repo/regions.geojson',
         });
-      })
 
-      map.addLayer({
-        'id': 'regions-layer',
-        'type': 'fill',
-        'source': 'regions',
-        'paint': {
-        'fill-color': 'rgba(200, 100, 240, 0.4)',
-        'fill-outline-color': 'rgba(200, 100, 240, 1)'
-        }
-        });
+        map.addLayer({
+          'id': 'regions',
+          'type': 'fill',
+          'source': 'regions',
+          'paint': {
+          'fill-color': '#fff',
+          'fill-outline-color': '#11101E'
+          }
+          });
+      });
+
+      this.map = map
+
+      map.on('click', 'regions', (e) => {
+        const regionName = e.features[0].properties.nom;
+        const url = `cheeses?query=${encodeURIComponent(regionName)}`
+
+        fetch(url)
+        .then(response => response.text())
+        .then(data => {
+          console.log(data)
+        })
+      });
     }
-
   }
