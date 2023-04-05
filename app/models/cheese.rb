@@ -26,6 +26,6 @@ class Cheese < ApplicationRecord
   def average_rating_cheese
     sum_rating = self.reviews.pluck(:rating).sum.to_f
     count_rating = self.reviews.pluck(:rating).count
-    (sum_rating / count_rating).to_i
+    (sum_rating / count_rating).round.to_i
   end
 end

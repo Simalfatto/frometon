@@ -48,6 +48,7 @@
                   <% (5 - @cheese.average_rating_cheese).times do %>
                   <i class="far fa-star"></i>
                   <% end %>
+                  <p class="avis-show-cheese"> <%= @cheese.reviews.count %> avis </p>
                 <% end %>
                 <%# <%= link_to "Lire les avis", bookmarks_path %>
               </div>

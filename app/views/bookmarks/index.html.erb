@@ -12,7 +12,7 @@
   </ul>
 
   <div class="tab-content" id="myTabContent">
-      <div class="tab-pane fade show <%= params[:bookmark_category] == 'forbidden' ? '' : 'active'%>", id="favoris-list" role="tabpanel" aria-labelledby="home-tab">
+      <div class="tab-pane fade show <%= params[:bookmark_category] == 'forbidden' ? '' : 'active show'%>", id="favoris-list" role="tabpanel" aria-labelledby="home-tab">
         <p class="bookmark-title-list"> Dégustez ces fromages et notez-les !</p>
         <ul>
         <% @bookmarks.each do |bookmark| %>
@@ -22,7 +22,7 @@
             <% end %>
             <div class="title-card-body">
               <h5 class="card-title"> <strong><%= bookmark.cheese.name %> </strong></h5>
-              <% @review = bookmark.cheese.reviews.find{|review| review.user == current_user} %>
+              <% @review = bookmark.cheese.reviews.order(created_at: :desc).first %>
               <div class="d-flex" id="stars-bookmark">
                   <p class="star-rating-title"> <strong> Ma note : </strong> </p>
                   <% if @review %>
@@ -34,8 +34,8 @@
                     <% end %>
                   <% end %>
               </div>
-              <div class="buttons-review-delete-card">
-                <%= link_to "Retirer", cheese_bookmark_path(bookmark.cheese, bookmark, bookmark_category: "bookmark"), data: {turbo_method: :delete, turbo_confirm: "Are your sure?"} %>
+              <div class="buttons-review-delete-card" >
+                <%= link_to "Retirer", cheese_bookmark_path(bookmark.cheese, bookmark, bookmark_category: "bookmark"), data: { turbo_method: :delete, turbo_confirm: "Êtes-vous sûr ?"} %>
                 <%= link_to "Noter", new_cheese_review_path(bookmark.cheese) %>
               </div>
             </div>
@@ -44,7 +44,7 @@
         </ul>
       </div>
 
-      <div class="tab-pane fade <%= params[:bookmark_category] == 'forbidden' ? 'active' : ''%>", id="forbiddent-list" role="tabpanel" aria-labelledby="profile-tab">
+      <div class="tab-pane fade <%= params[:bookmark_category] == 'forbidden' ? 'active show' : ''%>", id="forbiddent-list" role="tabpanel" aria-labelledby="profile-tab">
           <p class="bookmark-title-list"> Ces fromages n’apparaitront plus dans vos recherches.</p>
           <ul>
           <% @forbiddens.each do |forbidden|%>
@@ -55,7 +55,7 @@
               <div class="title-card-body">
                 <h5 class="card-title"> <strong> <%= forbidden.cheese.name %> </strong></h5>
                 <div class="buttons-review-delete-card">
-                  <%= link_to "Supprimer", cheese_destroy_forbiddens_path(forbidden.cheese, forbidden, bookmark_category: "forbidden"), data: {turbo_method: :delete, turbo_confirm: "Are your sure?"} %>
+                  <%= link_to "Retirer", cheese_destroy_forbiddens_path(forbidden.cheese, forbidden, bookmark_category: "forbidden"), class:" ", data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sûr ?"} %>
                   <%= link_to "Noter", new_cheese_review_path(forbidden.cheese) %>
               </div>
             </div>
