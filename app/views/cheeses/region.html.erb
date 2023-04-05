@@ -1,14 +1,23 @@
 <%= render "shared/navbar-top-default" %>
 <main class="content-middle">
 
-<h3 class="map-title"> <strong> Découvrez les fromages de nos régions <br></strong> </h3>
-<div class="entire-map">
-  <div style="width: 100%; height: 600px;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+<div id="fromage-list-region-parent">
+  <h3 class="map-title"> <strong> Découvrez les fromages de nos régions <br></strong> </h3>
+  <div class="entire-map">
+    <div style="width: 100%; height: 600px;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
   </div>
-</div>
+
+  <div id= "fromage-list-region">
+    <div id="wrapper-region">
+      <%= image_tag "SVG/cross.svg", id: "icon-cross-region" %>
+      <div id="wrapper-child-region">
+      </div>
+    </div>
+  </div>
 
 </main>
 <%= render "shared/navbar-bottom-default" %>

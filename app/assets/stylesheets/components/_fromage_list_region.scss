@@ -1,0 +1,43 @@
+.fromage-list-region-parent{
+  position: relative;
+}
+
+#wrapper-region{
+  position: relative;
+}
+
+#wrapper-child-region{
+  // padding-top: 16px;
+}
+
+#icon-cross-region{
+  height: 20px;
+  width: 20px;
+  position: sticky;
+  right: 0;
+  top: 0;
+}
+
+#fromage-list-region{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 1px;
+  opacity: 0;
+  color: white;
+  background-color: #111020;
+  border-radius: 15px 15px 0 0;
+  transition: all 0.5s ease-out;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+#fromage-list-region.show{
+  z-index: 2;
+  opacity: 1;
+  width: 100vw;
+  height: 70%;
+  overflow: scroll;
+  box-shadow: 0 0 15px rgba($color: #000000, $alpha: 1.0);
+}
