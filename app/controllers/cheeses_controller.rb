@@ -3,7 +3,7 @@ class CheesesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :show, :index ]
 
   def index
-    if params[:query]
+    if params[:region]
       @regions = Cheese.where("region ILIKE ?", "%#{params[:query]}%")
       respond_to do |format|
         format.html
