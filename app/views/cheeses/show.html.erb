@@ -5,7 +5,7 @@
           <%= link_to bookmarks_path, style: "text-decoration: none;" do  %>
             <%= image_tag("SVG/arrow.svg", width: '25px', id: "arrow") %>
           <% end %>
-          <%= render "shared/cheese_show_card" %>
+          <%= render "shared/cheese_show_card_bookmarks" %>
         <div class="verif-favoris">
           <p>Ce fromage est déjà présent dans vos envies</p>
         </div>
@@ -13,7 +13,7 @@
           <%= link_to bookmarks_path, style: "text-decoration: none;" do  %>
             <%= image_tag("SVG/arrow.svg", width: '25px', id: "arrow") %>
           <% end %>
-          <%= render "shared/cheese_show_card" %>
+          <%= render "shared/cheese_show_card_bookmarks" %>
         <div class="verif-favoris">
           <p>Ce fromage est déjà présent dans vos rejets</p>
         </div>

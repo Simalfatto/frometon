@@ -1,18 +1,22 @@
 <%= render "shared/navbar-top-default" %>
 <main class="content-middle">
   <%= link_to root_path, style: "text-decoration: none;" do  %>
-    <h1><%= image_tag("SVG/arrow.svg", width: '25px', id: "arrow") %></h1>
+    <%= image_tag("SVG/arrow.svg", width: '25px', id: "arrow") %>
   <% end %>
-  <div class="card-product">
-    <% @cheeses.each do |cheese| %>
-      <%= link_to cheese_path(cheese), class: "card-body-link", style: "text-decoration: none;" do %>
-        <div class="card-body">
-          <%= image_tag cheese.picture_url, class: "card-img-top"%>
-          <h5 class="card-title">
-            <%= cheese.name %></h5>
-        </div>
+  <% if @cheeses != [] %>
+    <div class="card-product">
+      <% @cheeses.each do |cheese| %>
+        <%= link_to cheese_path(cheese), class: "card-body-link", style: "text-decoration: none;" do %>
+          <div class="card-body">
+            <%= image_tag cheese.picture_url, class: "card-img-top"%>
+            <h5 class="card-title">
+              <%= cheese.name %></h5>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
+    </div>
+  <% else %>
+    <p class="text-center mb-5">Pas de fromage pour vos critères de recherche...</p>
+  <% end %>
 </main>
 <%= render "shared/navbar-bottom-default" %>

@@ -2,20 +2,28 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="navbar"
 export default class extends Controller {
-  static targets = ["value", "logo", "link"]
+  static targets = ["btn", "btn2", "value", "logo", "link"]
 
   connect() {
     this.valueTarget.value = ""
   }
   display() {
+    console.log("ok")
     this.logoTarget.classList.add("no-display");
+    setTimeout(() => {
+      this.btnTarget.classList.add("d-none")
+      this.btn2Target.classList.remove("d-none")
+    }, 500)
     document.addEventListener("click", this.handleClickOutside.bind(this));
   }
 
   handleClickOutside(event) {
+    console.log("ok2")
     // Check if the click happened outside the form
     if (!event.target.closest("form")) {
       // Remove the "d-none" class from the logo element
+      this.btnTarget.classList.remove("d-none")
+      this.btn2Target.classList.add("d-none")
       setTimeout(() => {
         this.logoTarget.classList.remove("no-display");
       }, 500);
