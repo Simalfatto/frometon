@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="navbar"
 export default class extends Controller {
-  static targets = ["value", "logo", "link"]
+  static targets = ["value", "logo", "link","info" ]
 
   connect() {
     this.valueTarget.value = ""

@@ -1,6 +1,6 @@
 <%= render "shared/navbar-top-default" %>
 <main class="content-middle homepage" data-controller="roulette">
-  <div>
+  <div data-controller="infos">
     <div id="image-roulette">
       <div id="roulette-svg" data-roulette-target="svg">
         <%= image_tag("SVG/roulette.svg") %>
@@ -39,10 +39,12 @@
       <%= button_to 'Chercher un fromage', result_path, id: "fromage-search", class: "justify-content-center",  method: "get", params: {search_all: true}, data: { roulette_target: 'button', action: "click->roulette#rotateBis" } %>
       <button id= "personnaliser" data-action="click->roulette#display" data-roulette-target="btn2">Personnaliser ma recherche</button>
     </div>
-    <div class="question">
-      <%= link_to cheeses_path, style: "text-decoration: none;" do %>
+    <div class="question" data-action="click->infos#infoSlide">
         <%= image_tag "SVG/question.svg", width: '45px', id:"icon-?" %>
-        <% end %>
+    </div>
+    <div class="infoslide" data-infos-target="info">
+          <h2><strong>Pourquoi Frometon ?</strong></h2>
+          <p>Frometon est ton assistant personnel, côté fromage ! <br>L’application te permet de trouver le produit qui te correspond.<br> Complète ton profil avec ton goût pour chaque type de fromage, ou personnalise directement ta recherche sur cette page : Frometon se charge du reste !</p>
     </div>
   </div>
 
