@@ -1,3 +1,9 @@
+<!-- app/views/offers/show.html.erb -->
+<% content_for :meta_title, "#{@cheese.name} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @cheese.description %>
+<% content_for :meta_image, cl_image_path(@cheese.photo.key) %>
+
+
 <%= render "shared/navbar-top-default" %>
 <main class="content-middle" id="content-middle" data-action="click->slide-cards#slideOff" data-controller="slide-cards">
     <% if user_signed_in? %>

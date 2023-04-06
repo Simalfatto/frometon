@@ -10,7 +10,11 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:pseudo])
   end
 
-  def after_sign_up_path_for(resource)
-    question_1_path
+  def after_sign_in_path_for(resource)
+    show_path
+  end
+
+  def default_url_options
+    { host: ENV["DOMAIN"] || "localhost:3000" }
   end
 end
