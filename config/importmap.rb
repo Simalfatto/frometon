@@ -9,4 +9,3 @@ pin "bootstrap", to: "bootstrap.min.js", preload: true
 pin "@popperjs/core", to: "popper.js", preload: true
 pin "star-rating.js", to: "https://cdn.jsdelivr.net/npm/star-rating.js@4.3.0/dist/star-rating.esm.js"
 pin "mapbox-gl", to: "https://ga.jspm.io/npm:mapbox-gl@2.13.0/dist/mapbox-gl.js"
-pin "app/javascript/script"
