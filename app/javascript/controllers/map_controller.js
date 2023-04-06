@@ -44,7 +44,6 @@ import mapboxgl from 'mapbox-gl' // Don't forget this!
 
       map.on('click', 'regions', (e) => {
         const regionName = e.features[0].properties.nom;
-        console.log(regionName)
         const url = `cheeses?region=${encodeURIComponent(regionName)}`
         const titreRegion = document.getElementById('titre-region')
         titreRegion.innerHTML = regionName
@@ -59,6 +58,7 @@ import mapboxgl from 'mapbox-gl' // Don't forget this!
         fetch(url)
         .then(response => response.json())
         .then(fromages => {
+          console.log(fromages)
           fromages.forEach(element => {
             const divCheese = document.createElement('div');
             divCheese.classList.add("card-body");
@@ -69,7 +69,10 @@ import mapboxgl from 'mapbox-gl' // Don't forget this!
             const titre = document.createElement("h5");
             divCheese.appendChild(titre)
             titre.innerText = element.name;
-            cheeses.appendChild(divCheese);
+            const link = document.createElement('a')
+            link.href = `cheeses/${element.id}`
+            link.appendChild(divCheese)
+            cheeses.appendChild(link);
           });
         })
       });
