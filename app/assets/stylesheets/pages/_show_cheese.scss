@@ -13,6 +13,7 @@
   transform: translate(50%, -50%);
   opacity: 1;
   transition-delay: 0.9s;
+  transition-property: opacity;
 }
 
 #icons-cross-visitor.none,
@@ -108,7 +109,6 @@
 #cheese-card-show.mini{
   transform: scale(0.8) rotate(10deg);
   transition: transform 0.75s ease;
-  // margin-top: 8px;
 }
 
 .verif-favoris{
@@ -205,6 +205,8 @@
   text-align: center;
   display: block;
   width: 100%;
+  position: relative;
+  top: 2%;
 
   & .buttons-tinder{
     margin-top: 16px;
@@ -216,8 +218,8 @@
   & .skip {
     padding: 4px 8px;
     border: none;
-    border-radius: 8px;
-    background-color: #F4ECEA;
+    border-radius: 32px;
+    background-color: #F6B16A;
     color: #11101E;
   }
 
@@ -227,8 +229,8 @@
 
   & .fa-solid{
     font-size: 2rem;
-    background-color: #fff;
-    color: #11101E;
+    background-color: #ED8E3A;
+    color: white;
     height: 50px;
     width: 50px;
     border: none;
@@ -242,6 +244,10 @@
   margin-top: 36px;
   display: flex;
   justify-content: space-between;
+  position: relative;
+  top: 1%;
+  opacity: 1;
+  transition: opacity 0.5s ease;
 }
 
 .buttons-cheese button{
@@ -249,7 +255,7 @@
   background-color: #fff;
   color: #11101E;
   padding: 8px 16px;
-  border-radius: 12px;
+  border-radius: 32px;
 }
 
 .buttons-cheese.remove{

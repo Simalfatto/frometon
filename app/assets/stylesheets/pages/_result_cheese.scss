@@ -1,3 +1,7 @@
+#cheese-result {
+  width: 100%;
+}
+
 #cheese-result-card {
   display: flex;
   justify-content: space-between;
@@ -23,8 +27,6 @@
 
 #cheese-result-card a {
   text-decoration: none;
-  color: #11101E;
-  background-color: #F4ECEA;
   font-size: 18px;
   font-weight: 500;
   padding-top: 6px;
@@ -33,13 +35,13 @@
   padding-right: 10px;
   border-radius: 32px;
   align-self: baseline !important;
+  background-color: #ED8E3A;
+  color: white;
 }
 
 #link-second-result {
   text-decoration: none;
   text-align: center;
-  color: #11101E;
-  background-color: white;
   font-size: 18px;
   font-weight: 500;
   padding-top: 6px;
@@ -48,4 +50,23 @@
   display: block;
   margin: auto;
   width: 90%;
+  border: 2px solid #ED8E3A;
+  background-color: #ED8E3A;
+  color: white;
+}
+
+#link-second-result-bis {
+  text-decoration: none;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  border-radius: 32px;
+  display: block;
+  margin: auto;
+  width: 90%;
+  border: 2px solid white;
+  background-color: white;
+  color: #11101E;
 }
