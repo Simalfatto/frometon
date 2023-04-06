@@ -3,6 +3,7 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+  align-items: center;
 }
 
 #image-roulette {
@@ -25,7 +26,7 @@
   display: block;
   margin: auto;
   background-color: #181823;
-  padding-top: 15px;
+  padding-top: 25px;
   z-index: 1;
   position: absolute;
   top: 44%;
@@ -48,7 +49,8 @@
   border-radius: 32px;
   display: block;
   margin: auto;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
+  width: 100%;
 }
 
 #personnaliser {
@@ -69,7 +71,7 @@
   background-color: #11101E;
   border: 0.5px solid #F6B16A;
   border-radius: 15px;
-  padding: 10px 10px 0 10px;
+  padding: 20px 10px 30px 10px;
   margin: auto;
   position: relative;
 }
@@ -93,14 +95,14 @@
   cursor: pointer;
   display: inline-block;
   font-size: 16px;
-  border-radius: 50rem;
-  padding: 2px 5px;
+  border-radius: 32px;
+  padding: 4px 8px;
   background-color: #ffd7ae;
   color: #53535c;
   border: 1px solid #ED8E3A;
-  margin-right: 0.6rem;
-  margin-left: 0.6rem;
-  margin-bottom: 0.4rem;
+  margin-right: 4px;
+  margin-left: 4px;
+  margin-bottom: 4px;
 }
 
 .tag-selector:checked + label {
@@ -116,8 +118,10 @@
   padding-top: 8px;
   padding-bottom: 8px;
   border-radius: 32px;
-  position: relative;
-  translate: 0 50%;
+  position: absolute;
+  width: 112%;
+  right: -6%;
+  top: 97%;
 }
 
 #form-home {
