@@ -12,13 +12,13 @@
   top: 0.25%;
   transform: translate(50%, -50%);
   opacity: 1;
-  transition-delay: 0.9s;
+  transition-delay: 0.95s;
   transition-property: opacity;
 }
 
 #icons-cross-visitor.none,
 #icons-cross-user.none{
-  transition-delay: 0.1s;
+  transition-delay: 0.01s;
   opacity: 0;
 }
 
@@ -202,6 +202,7 @@
 
 .tinder-button.display{
   margin-top: 16px;
+  margin-bottom: 20px;
   text-align: center;
   display: block;
   width: 100%;
@@ -242,6 +243,7 @@
 
 .buttons-cheese {
   margin-top: 36px;
+  margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
   position: relative;
