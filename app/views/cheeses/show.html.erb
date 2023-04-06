@@ -9,7 +9,7 @@
     <% if user_signed_in? %>
       <% if @bookmarks.any? { |bookmark| bookmark.cheese_id === @cheese.id} %>
           <%= link_to bookmarks_path, style: "text-decoration: none;" do  %>
-            <%= image_tag("SVG/arrow.svg", width: '25px', id: "arrow") %>
+            <%= image_tag("SVG/arrow.svg", width: '25px', id: "arrow-show-cheese") %>
           <% end %>
           <%= render "shared/cheese_show_card_bookmarks" %>
         <div class="verif-favoris">
@@ -17,7 +17,7 @@
         </div>
       <% elsif @forbiddens.any? { |forbidden| forbidden.cheese_id === @cheese.id}%>
           <%= link_to bookmarks_path, style: "text-decoration: none;" do  %>
-            <%= image_tag("SVG/arrow.svg", width: '25px', id: "arrow") %>
+            <%= image_tag("SVG/arrow.svg", width: '25px', id: "arrow-show-cheese") %>
           <% end %>
           <%= render "shared/cheese_show_card_bookmarks" %>
         <div class="verif-favoris">
@@ -29,12 +29,12 @@
           <%= render "shared/cheese_show_card" %>
         </div>
       <% end %>
-      <% else %>
-        <div class="parent-cheese-card">
-          <%= image_tag "SVG/cross.svg", id: "icons-cross-visitor", data: { action: "click->slide-cards#visitor", slide_cards_target: "iconCross"} %>
-          <%= render "shared/cheese_show_card" %>
-        </div>
-      <% end %>
+    <% else %>
+      <div class="parent-cheese-card">
+        <%= image_tag "SVG/cross.svg", id: "icons-cross-visitor", data: { action: "click->slide-cards#visitor", slide_cards_target: "iconCross"} %>
+        <%= render "shared/cheese_show_card" %>
+      </div>
+    <% end %>
 
     <div class="buttons-cheese" data-slide-cards-target="cheeseButtons">
       <button id="button recipe" data-action="click->slide-cards#slideOn">Recettes</button>

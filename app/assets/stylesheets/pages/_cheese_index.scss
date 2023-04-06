@@ -2,6 +2,9 @@
   width: 90px;
   height: 90px;
   margin-right: 16px;
+  border: 0.003px solid rgba(17, 16, 30, 0.3);
+  border-radius: 10px 10px 10px 10px;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
 }
 
 .card-body {
@@ -12,7 +15,7 @@
   background-color: #F4ECEA;
   border-radius: 10px;
   padding: 8px;
-  color: #11101E;
+  color: #11101e;
 }
 
 h5 {
@@ -21,13 +24,6 @@ h5 {
 .content-middle h1 {
   color: whitesmoke;
 }
-.card-img-top
-{
-  border: 1px solid #F6B16A;
-  border-radius: 10px 10px 10px 10px;
-  box-shadow: 5px 5px 5px black;
-}
-
 #arrow{
   padding-bottom: 20px;
 }

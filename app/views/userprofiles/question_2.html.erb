@@ -10,7 +10,6 @@
           <%= f.range_field :score_search_chevre, in: 0..10, step:"1", value: @user.score_search_chevre, oninput: "output.value = score_search_chevre.value" %>
           <div class="output-and-submit">
             <div class="score">
-              <p> Ton choix :  </p>
               <output id="output"><%= @user.score_search_chevre%></output>
             </div>
             <%= f.submit "Valider", id: "fromagator_submit_button" %>
