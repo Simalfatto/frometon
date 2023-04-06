@@ -3,10 +3,37 @@ class CheesesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :show, :index ]
 
   def index
-    if params[:query]
-      @regions = Cheese.where("region ILIKE ?", "%#{params[:query]}%")
+    if params[:region]
+      case params[:region]
+      when "Île-de-France"
+        @regions = Cheese.where(region: "Île de France")
+      when "Centre-Val de Loire"
+        @regions = Cheese.where(region: "Centre Val de Loire")
+      when "Bourgogne-Franche-Comté"
+        @regions = Cheese.where(region: "Bourgogne Franche Comté")
+      when "Normandie"
+        @regions = Cheese.where(region: "Normandie")
+      when "Hauts-de-France"
+        @regions = Cheese.where(region: "Hauts de France")
+      when "Grand Est"
+        @regions = Cheese.where(region: "Grand Est")
+      when "Pays de la Loire"
+        @regions = Cheese.where(region: "Pays de la Loire")
+      when "Bretagne"
+        @regions = Cheese.where(region: "Bretagne")
+      when "Nouvelle-Aquitaine"
+        @regions = Cheese.where(region: "Nouvelle Aquitaine")
+      when "Occitanie"
+        @regions = Cheese.where(region: "Occitanie")
+      when "Auvergne-Rhône-Alpes"
+        @regions = Cheese.where(region: "Auvergne Rhône Alpes")
+      when "Provence-Alpes-Côte d'Azur"
+        @regions = Cheese.where(region: "Provence Alpes Côte d'Azur")
+      when "Corse"
+        @regions = Cheese.where(region: "Corse")
+      end
       respond_to do |format|
-        format.html
+        format.json  { render :json => @regions }
       end
     elsif params[:query].present?
       @cheeses = Cheese.where("name ILIKE ?", "%#{params[:query]}%")

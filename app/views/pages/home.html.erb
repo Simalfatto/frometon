@@ -1,6 +1,5 @@
 <%= render "shared/navbar-top-default" %>
-<main class="content-middle homepage" data-controller="roulette">
-  <div data-controller="infos">
+<main class="content-middle homepage" data-controller="roulette infos">
     <div id="image-roulette">
       <div id="roulette-svg" data-roulette-target="svg">
         <%= image_tag("SVG/roulette.svg") %>
@@ -24,7 +23,7 @@
             </div>
           </div>
           <div>
-            <p class="text-center mt-2">Produit uniquement :</p>
+            <p class="text-center mt-4">Produit uniquement :</p>
             <div class="d-flex justify-content-between">
               <%= check_box_tag :AOP, 0, false, class: "tag-selector" %>
               <%= label_tag :"AOP" %>
@@ -49,7 +48,6 @@
         <p>Frometon est ton assistant personnel, côté fromage ! <br>L’application te permet de trouver le produit qui te correspond.<br> Complète ton profil avec ton goût pour chaque type de fromage, ou personnalise directement ta recherche sur cette page : Frometon se charge du reste !</p>
       </div>
     </div>
-  </div>
 
 </main>
 <%= render "shared/navbar-bottom-default" %>
