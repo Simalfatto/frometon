@@ -1,7 +1,7 @@
 <!-- app/views/offers/show.html.erb -->
 <% content_for :meta_title, "#{@cheese.name} is on #{DEFAULT_META["meta_product_name"]}" %>
-<% content_for :meta_description, @cheese.description %>
-<% content_for :meta_image, cl_image_path(@cheese.photo.key) %>
+<% content_for :meta_description, @cheese.description_1 %>
+<% content_for :meta_image, @cheese.picture_url %>
 
 
 <%= render "shared/navbar-top-default" %>
