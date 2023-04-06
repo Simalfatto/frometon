@@ -39,7 +39,6 @@
 }
 
 #fromage-search {
-  background-color: white;
   font-size: 24px;
   font-weight: 500;
   padding-top: 8px;
@@ -51,10 +50,13 @@
   margin: auto;
   margin-bottom: 40px;
   width: 100%;
+  border: 2px solid #ED8E3A;
+  background-color: #ED8E3A;
+  color: white;
 }
 
 #personnaliser {
-  background-color: #F4ECEA;
+  background-color: white;
   font-size: 18px;
   font-weight: 500;
   padding-top: 8px;
@@ -112,7 +114,6 @@
 }
 
 #second-search {
-  background-color: white;
   font-size: 24px;
   font-weight: 500;
   padding-top: 8px;
@@ -122,6 +123,9 @@
   width: 112%;
   right: -6%;
   top: 97%;
+  border: 2px solid #ED8E3A;
+  background-color: #ED8E3A;
+  color: white;
 }
 
 #form-home {
