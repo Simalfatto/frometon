@@ -23,12 +23,12 @@
           <%= render "shared/cheese_show_card" %>
         </div>
       <% end %>
-      <% else %>
-        <div class="parent-cheese-card">
-          <%= image_tag "SVG/cross.svg", id: "icons-cross-visitor", data: { action: "click->slide-cards#visitor", slide_cards_target: "iconCross"} %>
-          <%= render "shared/cheese_show_card" %>
-        </div>
-      <% end %>
+    <% else %>
+      <div class="parent-cheese-card">
+        <%= image_tag "SVG/cross.svg", id: "icons-cross-visitor", data: { action: "click->slide-cards#visitor", slide_cards_target: "iconCross"} %>
+        <%= render "shared/cheese_show_card" %>
+      </div>
+    <% end %>
 
     <div class="buttons-cheese" data-slide-cards-target="cheeseButtons">
       <button id="button recipe" data-action="click->slide-cards#slideOn">Recettes</button>

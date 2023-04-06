@@ -20,15 +20,13 @@
     }
 }
 
-#recipes-list.show{
-    opacity: 1;
-    width: 100vw;
-    height: 90%;
-    box-shadow: 0 0 15px rgba($color: #000000, $alpha: 1.0);
+#wine-list p{
+  line-height: 30px;
 }
 
 #wine-list.show,
-#story-list.show{
+#story-list.show,
+#recipes-list.show{
     opacity: 1;
     width: 100vw;
     height: 70%;
