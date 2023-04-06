@@ -1,6 +1,6 @@
 class CheesesController < ApplicationController
   before_action :set_cheese, only: [:show, :edit, :update]
-  skip_before_action :authenticate_user!, only: [ :show, :index ]
+  skip_before_action :authenticate_user!, only: [ :show, :index, :region ]
 
   def index
     if params[:region]
