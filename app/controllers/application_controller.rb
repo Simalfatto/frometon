@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:pseudo])
   end
 
-  def after_sign_in_path_for(resource)
+  def after_sign_up_path_for(resource)
     question_1_path
   end
 end

@@ -10,6 +10,11 @@ import mapboxgl from 'mapbox-gl' // Don't forget this!
     connect() {
       mapboxgl.accessToken = this.apiKeyValue
 
+      const div = document.getElementById('fromage-list-region');
+      const cheeses = document.getElementById('wrapper-child-region');
+      div.classList.remove('show');
+      cheeses.innerHTML = "";
+
       const map = new mapboxgl.Map({
         container: this.element,
         style: "mapbox://styles/ju-dev/clg2b42i801gs01pexus8zesb",
@@ -41,12 +46,9 @@ import mapboxgl from 'mapbox-gl' // Don't forget this!
         const regionName = e.features[0].properties.nom;
         console.log(regionName)
         const url = `cheeses?region=${encodeURIComponent(regionName)}`
-
-        const div = document.getElementById('fromage-list-region')
         const titreRegion = document.getElementById('titre-region')
         titreRegion.innerHTML = regionName
         const close = document.getElementById('icon-cross-region')
-        const cheeses = document.getElementById('wrapper-child-region')
         div.classList.add('show')
 
         close.addEventListener("click", () => {
